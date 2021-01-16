@@ -19,6 +19,14 @@
       [post]="item"
       baseUrl="/post/view"></app-post-list-item>
 
+    <ng-container *ngIf="empty">
+      <div class="scripter-empty-container">
+        <div class="scripter-empty-text">
+          표시할 글이 없습니다.
+        </div>
+      </div>
+    </ng-container>
+
     <!-- loading spot -->
     <app-loading-spot
       *ngIf="loading"

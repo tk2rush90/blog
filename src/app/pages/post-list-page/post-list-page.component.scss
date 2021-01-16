@@ -36,3 +36,16 @@ app-loading-spot {
 app-footer {
   margin-top: 200px;
 }
+
+// empty container
+.scripter-empty-container {
+  @include flex(center, center);
+  height: 100px;
+}
+
+// empty post text
+.scripter-empty-text {
+  text-align: center;
+  font-size: 14px;
+  color: $silver;
+}

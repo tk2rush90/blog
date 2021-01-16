@@ -6,6 +6,7 @@ import {PostListResponseModel} from '@scripter/models/post-list-response-model';
 import {ScrollDetectorDirective} from '@scripter/components/common/scroll-detector/scroll-detector.directive';
 import {finalize} from 'rxjs/operators';
 import {PostModel} from '@scripter/models/post-model';
+import {ToastService, ToastType} from '@scripter/components/common/toast/service/toast.service';
 
 @Component({
   selector: 'app-post-list-page',
@@ -27,6 +28,7 @@ export class PostListPageComponent extends ScrollDetectorDirective implements On
 
   constructor(
     public elementRef: ElementRef<HTMLElement>,
+    private toastService: ToastService,
     private postApiService: PostApiService,
     private activatedRoute: ActivatedRoute,
     private subscriptionService: SubscriptionService,
@@ -37,6 +39,13 @@ export class PostListPageComponent extends ScrollDetectorDirective implements On
   ngOnInit(): void {
     this._subscribeScrollEnd();
     this._subscribeRouteParams();
+  }
+
+  /**
+   * return `true` when no post to display
+   */
+  get empty(): boolean {
+    return this.posts.length === 0 && !this.loading;
   }
 
   /**
@@ -76,6 +85,12 @@ export class PostListPageComponent extends ScrollDetectorDirective implements On
             } else {
               this.posts = res.items || [];
             }
+          },
+          error: err => {
+            this.toastService.open({
+              message: '포스트 목록을 가져오지 못했습니다',
+              type: ToastType.error,
+            });
           },
         });
 
