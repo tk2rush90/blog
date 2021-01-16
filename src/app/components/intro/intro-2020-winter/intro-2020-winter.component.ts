@@ -275,7 +275,7 @@ export class ShadowSprite extends AbstractAnimationScene {
 
 export class ShadowsContainer extends AbstractAnimationScene {
   // loader
-  private static _loader: PIXI.Loader = new PIXI.Loader('/assets/intro/intro-2020-winter');
+  private static _loader: PIXI.Loader = new PIXI.Loader(`assets/intro/intro-2020-winter`);
   // emit when sprite created
   onSpriteCreated: EventEmitter<ShadowSprite> = new EventEmitter();
   // emit when all sprites loaded

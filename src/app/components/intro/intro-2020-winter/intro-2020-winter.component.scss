@@ -39,26 +39,17 @@
   pointer-events: none;
 }
 
-svg {
-  opacity: .1;
-  transition: transform .1s;
-
-  text, tspan {
-    font-family: 'Pacifico', cursive;
-    font-size: 100px;
-    fill: $white;
-  }
-
+img {
   @include under(1023px) {
-    transform: scale(.9);
+    width: calc(373px * .9);
   }
 
   @include under(767px) {
-    transform: scale(.8);
+    width: calc(373px * .8);
   }
 
   @include under(424px) {
-    transform: scale(.7);
+    width: calc(373px * .7);
   }
 }
 
