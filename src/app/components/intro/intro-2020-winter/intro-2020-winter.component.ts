@@ -15,6 +15,11 @@ import {spliceArrayItem} from '@scripter/utils/array.util';
 import {randomNumber} from '@scripter/utils/random.util';
 import {AbstractAnimationScene, AnimationService} from '@scripter/services/animation/animation.service';
 import {SubscriptionService} from '@scripter/services/subscription/subscription.service';
+import {environment} from '../../../../environments/environment';
+
+const {
+  assetsPrefix,
+} = environment;
 
 export const SNOW_GROUND_HEIGHTS = 50;
 
@@ -275,7 +280,7 @@ export class ShadowSprite extends AbstractAnimationScene {
 
 export class ShadowsContainer extends AbstractAnimationScene {
   // loader
-  private static _loader: PIXI.Loader = new PIXI.Loader(`assets/intro/intro-2020-winter`);
+  private static _loader: PIXI.Loader = new PIXI.Loader(`${assetsPrefix}/assets/intro/intro-2020-winter`);
   // emit when sprite created
   onSpriteCreated: EventEmitter<ShadowSprite> = new EventEmitter();
   // emit when all sprites loaded
@@ -1375,6 +1380,8 @@ export class BackgroundAnimator extends AbstractAnimationScene {
 export class Intro2020WinterComponent implements OnInit, AfterViewInit, OnDestroy {
   // home button link
   @Input() homeLink: string[] = ['/components/home'];
+  // title
+  readonly titleImage = `${assetsPrefix}/assets/images/scripter-title.png`;
   // pixi application
   private _app!: PIXI.Application;
   // view width and height
