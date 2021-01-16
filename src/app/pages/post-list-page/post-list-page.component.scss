@@ -1,0 +1,38 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include box(100%);
+  @include flex(stretch, null, column, nowrap);
+  position: absolute;
+  overflow: auto;
+
+  .scripter-page-container {
+    @include itemFlex(1, 1, 0);
+  }
+}
+
+// post list container
+.scripter-post-list-container {
+  margin-top: 50px;
+}
+
+// list header
+app-post-list-header {
+  margin-top: 50px;
+}
+
+// post list item space
+app-post-list-item + app-post-list-item {
+  margin-top: 55px;
+}
+
+// loading
+app-loading-spot {
+  height: 100px;
+}
+
+// footer
+app-footer {
+  margin-top: 200px;
+}

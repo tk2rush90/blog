@@ -1,0 +1,26 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+  width: 100%;
+  max-width: 450px;
+}
+
+// content style
+app-modal-content {
+  @include padding(20px 20px 40px);
+  font-size: 14px;
+  line-height: 1.6;
+  color: $white;
+}
+
+// button space
+button + button {
+  margin-left: 20px;
+}
+
+// flat button
+.scripter-flat-button {
+  height: 35px;
+}

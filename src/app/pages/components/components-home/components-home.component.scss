@@ -1,0 +1,36 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include padding(100px 0);
+  @include flex(flex-start, center);
+}
+
+// scripter inner container
+.scripter-container {
+  @include flex(stretch, null, column);
+  width: 200px;
+}
+
+// anchor
+a {
+  @include flex(center, center);
+  @include padding(10px 20px);
+  @include clickable();
+  font-size: 12px;
+  border-radius: 3px;
+  background-color: darken($white, 5%);
+
+  &:hover {
+    background-color: darken($white, 10%);
+  }
+
+  &:active {
+    background-color: darken($white, 20%);
+  }
+}
+
+// anchor space
+a + a {
+  margin-top: 10px;
+}

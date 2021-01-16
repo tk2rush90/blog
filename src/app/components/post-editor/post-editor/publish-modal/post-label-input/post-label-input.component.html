@@ -1,0 +1,21 @@
+<!-- title input -->
+<app-form-field>
+  <label>
+    Labels
+  </label>
+
+  <input
+    (keydown.enter)="addNewLabel()"
+    [(ngModel)]="value"
+    appInput/>
+</app-form-field>
+
+<!-- label container -->
+<div *ngIf="labels.length > 0" class="scripter-label-container">
+  <app-post-label
+    (click)="removeExistingLabel(item)"
+    *ngFor="let item of labels"
+    [deletable]="true">
+    {{item}}
+  </app-post-label>
+</div>

@@ -1,0 +1,13 @@
+@import "styles/mixins";
+@import "styles/props";
+
+// icon class
+.scripter-icon {
+  @include flex(center, center);
+
+  svg {
+    @include box(100%);
+    display: block;
+  }
+}
+

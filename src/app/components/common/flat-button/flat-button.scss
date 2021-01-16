@@ -1,0 +1,36 @@
+@import "styles/mixins";
+@import "styles/props";
+
+@mixin flatButton($color, $font-color, $background, $hover-background, $active-background) {
+  @include customAttribute('scripter-color', $color) {
+    color: $font-color;
+    background-color: $background;
+
+    &:not(:disabled) {
+      @include clickable();
+
+      &:hover {
+        background-color: $hover-background;
+      }
+
+      &:active {
+        background-color: $active-background;
+      }
+    }
+
+    &:disabled {
+      opacity: .3;
+    }
+  }
+}
+
+// flat button
+.scripter-flat-button {
+  @include flex(center, center);
+  @include padding(0 20px);
+  font-size: 14px;
+  border-radius: 6px;
+
+  // for grey color
+  @include flatButton('grey', $black, $gainsboro, darken($gainsboro, 5%), darken($gainsboro, 10%));
+}

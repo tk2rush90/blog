@@ -1,0 +1,21 @@
+@import "../../../styles/mixins";
+@import "../../../styles/props";
+
+:host {
+  @include flex(center, space-between);
+  width: 100%;
+  height: 70px;
+
+  @include under(767px) {
+    @include topLeft;
+    @include padding(0 20px);
+    position: sticky;
+    width: calc(100% + 40px);
+    margin: 0 -20px;
+
+    &.scripter-scrolled {
+      box-shadow: 0 3px 6px rgba($black, .16);
+      backdrop-filter: blur(10px);
+    }
+  }
+}

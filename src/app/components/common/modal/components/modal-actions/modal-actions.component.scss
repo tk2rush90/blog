@@ -1,0 +1,9 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, flex-end);
+  @include padding(0 20px);
+  background-color: $nero;
+  height: 70px;
+}

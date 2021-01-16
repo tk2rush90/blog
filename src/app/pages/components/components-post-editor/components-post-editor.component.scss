@@ -1,0 +1,12 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include box(100%);
+  position: absolute;
+  display: block;
+}
+
+app-post-editor {
+  @include box(100%);
+}

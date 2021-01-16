@@ -1,0 +1,26 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/props";
+
+:host {
+  @include flex(center);
+  user-select: none;
+}
+
+// logo
+.scripter-logo {
+  @include quickSand;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+// ball
+.scripter-ball {
+  @include ball(3px);
+  margin: 0 5px;
+  background-color: $black;
+}
+
+// red logo
+.scripter-logo-red {
+  color: $razzmatazz;
+}

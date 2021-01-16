@@ -1,0 +1,21 @@
+<app-modal-container>
+  <app-modal-content>
+    {{message || ''}}
+  </app-modal-content>
+
+  <app-modal-actions>
+    <button
+      (click)="modalRef.close()"
+      appInlineButton
+      color="semi-white">
+      취소
+    </button>
+
+    <button
+      (click)="modalRef.close(true)"
+      appFlatButton
+      color="grey">
+      확인
+    </button>
+  </app-modal-actions>
+</app-modal-container>

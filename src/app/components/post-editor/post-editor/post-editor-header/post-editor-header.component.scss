@@ -1,0 +1,28 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/props";
+
+:host {
+  @include flex(center, space-between);
+  @include padding(0 40px);
+  background-color: $eclipse;
+  height: 70px;
+
+  @include under(767px) {
+    @include padding(0 20px);
+  }
+}
+
+// actions
+.scripter-actions {
+  @include flex(center);
+}
+
+// button space
+button + button {
+  margin-left: 20px;
+}
+
+// flat button style
+.scripter-flat-button {
+  height: 35px;
+}

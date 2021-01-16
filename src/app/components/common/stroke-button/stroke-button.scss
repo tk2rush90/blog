@@ -1,0 +1,36 @@
+@import "styles/mixins";
+@import "styles/props";
+
+@mixin strokeButton($color, $border-color, $font-color, $hover-background, $active-background) {
+  @include customAttribute('scripter-color', $color) {
+    @include border(1px solid $border-color);
+    @include padding(0 10px);
+    border-radius: 12.5px;
+    height: 25px;
+    font-size: 11px;
+    color: $font-color;
+
+    &:not(:disabled) {
+      @include clickable();
+
+      &:hover {
+        background-color: $hover-background;
+      }
+
+      &:active {
+        background-color: $active-background;
+      }
+    }
+
+    // additional content
+    @content;
+  }
+}
+
+// stroke button
+.scripter-stroke-button {
+  @include flex(center, center);
+
+  // for 'grey' button
+  @include strokeButton('grey', $silver, $silver, $white-smoke2, darken($white-smoke2, 5%));
+}

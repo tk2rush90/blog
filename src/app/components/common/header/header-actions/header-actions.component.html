@@ -1,0 +1,21 @@
+<a
+  [routerLink]="['/post/editor']"
+  *ngIf="signed$ | async"
+  appInlineButton
+  color="black">
+  새 글 쓰기
+</a>
+
+<a
+  [href]="instagramUrl"
+  class="scripter-ig-link"
+  target="_blank">
+  <app-icon-instagram></app-icon-instagram>
+</a>
+
+<a
+  [href]="githubUrl"
+  class="scripter-github-link"
+  target="_blank">
+  <app-icon-github></app-icon-github>
+</a>

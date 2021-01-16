@@ -1,0 +1,38 @@
+<!-- top bar -->
+<div class="scripter-top-bar"></div>
+
+<!-- page container -->
+<div class="scripter-page-container">
+  <!-- list header -->
+  <app-header
+    [scrollContainer]="elementRef"></app-header>
+
+  <!-- loading spot -->
+  <app-loading-spot
+    *ngIf="loading; else content"
+    [size]="50"></app-loading-spot>
+
+  <!-- main content -->
+  <ng-template #content>
+    <ng-container *ngIf="post">
+      <!-- post view header -->
+      <app-post-view-header
+        [post]="post"></app-post-view-header>
+
+      <div class="scripter-bar"></div>
+
+      <!-- markdown viewer -->
+      <app-post-markdown-viewer
+        [content]="post.content"></app-post-markdown-viewer>
+
+      <!-- labels -->
+      <app-post-view-label-container
+        *ngIf="post.labels.length > 0"
+        [labels]="post.labels"></app-post-view-label-container>
+    </ng-container>
+  </ng-template>
+</div>
+
+<!-- footer -->
+<app-footer></app-footer>
+

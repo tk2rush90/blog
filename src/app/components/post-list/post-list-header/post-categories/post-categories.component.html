@@ -1,0 +1,12 @@
+<!-- static link -->
+<a [routerLink]="['/intro']">
+  Intro
+</a>
+
+<!-- categories -->
+<a
+  [routerLink]="['/post/list', item.value]"
+  *ngFor="let item of categories"
+  routerLinkActive="scripter-active">
+  {{item.label}}
+</a>

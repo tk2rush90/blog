@@ -1,0 +1,47 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(flex-start, null, column);
+}
+
+// date label
+.scripter-date {
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: $light-slate-grey;
+}
+
+// post title
+.scripter-title {
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 700;
+  user-select: none;
+  margin-top: 5px;
+  max-width: 100%;
+  word-break: break-word;
+
+  &:hover {
+    color: $razzmatazz;
+  }
+
+  &:active {
+    color: darken($razzmatazz, 5%);
+  }
+}
+
+// post content's first paragraph
+.scripter-content {
+  font-size: 15px;
+  margin-top: 8px;
+  line-height: 1.6;
+  width: 100%;
+  word-break: break-word;
+}
+
+// post label container
+app-post-list-label-container {
+  margin-top: 7px;
+}

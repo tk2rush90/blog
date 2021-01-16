@@ -1,0 +1,14 @@
+<!-- editor header -->
+<app-post-editor-header></app-post-editor-header>
+
+<!-- editor body container -->
+<div class="scripter-container">
+  <!-- textarea -->
+  <app-post-editor-textarea
+    *ngIf="showTextarea"></app-post-editor-textarea>
+
+  <!-- previewer -->
+  <app-post-editor-previewer
+    *ngIf="showPreviewer"></app-post-editor-previewer>
+</div>
+

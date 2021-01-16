@@ -1,0 +1,33 @@
+<!-- admin actions -->
+<div
+  *ngIf="signed$ | async"
+  class="scripter-actions">
+  <a
+    [routerLink]="['/post/editor', post?.id]"
+    appInlineButton
+    color="grey">
+    수정
+  </a>
+
+  <button
+    (click)="deletePost()"
+    appInlineButton
+    color="grey">
+    삭제
+  </button>
+</div>
+
+<!-- date -->
+<div class="scripter-date">
+  {{post?.published | date: 'MMMM d, yyyy'}}
+</div>
+
+<!-- title -->
+<div class="scripter-title">
+  {{post?.title}}
+</div>
+
+<!-- loading cover -->
+<app-loading-spot
+  *ngIf="loading"
+  [size]="50"></app-loading-spot>

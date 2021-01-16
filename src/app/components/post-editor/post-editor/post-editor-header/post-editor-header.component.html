@@ -1,0 +1,28 @@
+<!-- view toggle button -->
+<app-editor-view-toggle
+  (ngModelChange)="onViewChange($event)"
+  [ngModel]="view"></app-editor-view-toggle>
+
+<!-- actions -->
+<div class="scripter-actions">
+  <button
+    (click)="openConfirmModalForNewPost()"
+    appInlineButton
+    color="semi-white">
+    새 글
+  </button>
+
+  <button
+    (click)="openDraftModal()"
+    appInlineButton
+    color="semi-white">
+    초안
+  </button>
+
+  <button
+    (click)="openPublishModal()"
+    appFlatButton
+    color="grey">
+    발행설정
+  </button>
+</div>

@@ -1,0 +1,89 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+}
+
+// markdown default style
+markdown {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+// markdown styles
+markdown {
+  ::ng-deep {
+    code[class*="language-"],
+    pre[class*="language-"] {
+      @include jetBrainsMono;
+      font-size: 14px;
+
+      * {
+        @include jetBrainsMono;
+        font-size: 14px;
+      }
+    }
+
+    .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
+      background-color: transparent;
+    }
+
+    :not(pre) {
+      code {
+        @include padding(2px 5px);
+        @include jetBrainsMono;
+        border-radius: 5px;
+        background-color: $hint-of-red;
+        font-size: 14px;
+      }
+    }
+
+    p {
+      margin: 1.6em 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 1.6em 0;
+    }
+
+    a {
+      color: $summer-sky;
+
+      &:hover {
+        color: darken($summer-sky, 5%);
+      }
+
+      &:active {
+        color: darken($summer-sky, 10%);
+      }
+    }
+
+    blockquote {
+      @include padding(5px 0 5px 14px);
+      @include borderLeft(2px solid $eclipse);
+      color: $eclipse;
+      margin: 16px 0;
+    }
+
+    ul, ol {
+      list-style-position: inside;
+    }
+
+    *:first-child {
+      margin-top: 0;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+
+    img, iframe {
+      max-width: 100%;
+    }
+
+    table {
+      max-width: 100%;
+    }
+  }
+}

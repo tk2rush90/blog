@@ -1,0 +1,20 @@
+<!-- date -->
+<div class="scripter-date">
+  {{post?.published | date: 'MMMM d, yyyy'}}
+</div>
+
+<!-- title -->
+<a
+  [routerLink]="[baseUrl, post?.id]"
+  class="scripter-title">
+  {{post?.title}}
+</a>
+
+<!-- content -->
+<app-post-markdown-viewer
+  [content]="intro"
+  class="scripter-content"></app-post-markdown-viewer>
+
+<!-- post label container -->
+<app-post-list-label-container
+  [post]="post"></app-post-list-label-container>

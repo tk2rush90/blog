@@ -1,0 +1,37 @@
+@import "styles/mixins";
+@import "styles/props";
+
+@mixin type($type) {
+  @include customAttribute('scripter-type', $type) {
+    @content;
+  }
+}
+
+:host {
+  @include padding(18px 20px);
+  @include clickable();
+  position: fixed;
+  left: 50%;
+  bottom: 30px;
+  margin-left: -140px;
+  display: block;
+  width: 280px;
+  min-height: 50px;
+  font-size: 12px;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba($black, .3);
+  color: $white;
+  z-index: 1001;
+
+  @include type('default') {
+    background-color: $nero;
+  }
+
+  @include type('success') {
+    background-color: $dark-pastel-green;
+  }
+
+  @include type('error') {
+    background-color: $coral-red;
+  }
+}

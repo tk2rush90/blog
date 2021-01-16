@@ -1,0 +1,11 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include topLeft;
+  @include box(100%);
+  // center the modal component
+  @include flex(center, center);
+  position: fixed;
+  z-index: 1000;
+}

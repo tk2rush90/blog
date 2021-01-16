@@ -1,0 +1,46 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(stretch, null, column, nowrap);
+  @include box(100%);
+  position: absolute;
+  overflow: auto;
+
+  .scripter-page-container {
+    @include itemFlex(1, 1, 0);
+  }
+}
+
+// post view header
+app-post-view-header {
+  margin-top: 70px;
+}
+
+// bar divider
+.scripter-bar {
+  width: 100%;
+  max-width: 250px;
+  height: 1px;
+  background-color: $gainsboro;
+  margin: 50px auto;
+}
+
+// label container
+app-post-view-label-container {
+  margin-top: 200px;
+}
+
+// markdown viewer
+app-post-markdown-viewer {
+  @include itemFlex(1, 1, 0);
+}
+
+// loading spot
+app-loading-spot {
+  height: 200px;
+}
+
+app-footer {
+  margin-top: 100px;
+}

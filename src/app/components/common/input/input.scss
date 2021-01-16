@@ -1,0 +1,27 @@
+@import "styles/mixins";
+@import "styles/props";
+
+// input field
+.scripter-input-field {
+  @include padding(0 15px);
+  background-color: $dim-grey;
+  border-radius: 6px;
+  height: 40px;
+  font-size: 14px;
+
+  &:not(:disabled) {
+    &:focus {
+      background-color: $silver;
+    }
+  }
+
+  &::placeholder {
+    color: $gainsboro;
+  }
+
+  &.ng-touched, &.ng-dirty {
+    &.ng-invalid {
+      background-color: $coral-red;
+    }
+  }
+}

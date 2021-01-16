@@ -1,0 +1,27 @@
+@import "../../../../../styles/mixins";
+@import "../../../../../styles/props";
+
+:host {
+  @include flex(center);
+}
+
+// deactivated icon style
+app-view-toggle-icon {
+  &:not(.scripter-active) {
+    opacity: .5;
+  }
+}
+
+// icon space
+app-view-toggle-icon {
+  margin-right: 14px;
+}
+
+// hide first child on under tablet
+app-view-toggle-icon {
+  &:first-child {
+    @include under(767px) {
+      display: none;
+    }
+  }
+}

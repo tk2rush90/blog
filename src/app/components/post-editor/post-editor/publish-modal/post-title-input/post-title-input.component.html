@@ -1,0 +1,12 @@
+<!-- title input -->
+<app-form-field>
+  <label>
+    Title
+  </label>
+
+  <input
+    (ngModelChange)="setValue($event)"
+    [ngModel]="value"
+    required
+    appInput/>
+</app-form-field>

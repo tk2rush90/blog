@@ -1,0 +1,25 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+}
+
+// label for container
+.scripter-label {
+  font-size: 12px;
+  line-height: 14px;
+  color: $silver;
+}
+
+// label container
+.scripter-container {
+  @include flex(flex-start);
+  margin-top: 10px;
+}
+
+// label space
+app-post-label {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}

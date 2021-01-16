@@ -1,0 +1,13 @@
+<app-form-field>
+  <!-- label -->
+  <label>
+    Category
+  </label>
+
+  <!-- select -->
+  <app-select
+    (ngModelChange)="setValue($event)"
+    [ngModel]="value"
+    [options]="options"
+    required></app-select>
+</app-form-field>

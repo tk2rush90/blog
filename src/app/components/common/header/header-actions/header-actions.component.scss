@@ -1,0 +1,61 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/props";
+
+:host {
+  @include flex(center);
+}
+
+a {
+  font-size: 12px;
+}
+
+// icon default
+app-icon-instagram,
+app-icon-github {
+  @include clickable();
+  @include box(24px);
+}
+
+// instagram icon hover
+app-icon-instagram {
+  &:hover {
+    ::ng-deep {
+      rect, circle {
+        stroke: $razzmatazz;
+      }
+    }
+  }
+}
+
+// github icon hover
+app-icon-github {
+  &:hover {
+    ::ng-deep {
+      path {
+        fill: $razzmatazz;
+      }
+    }
+  }
+}
+
+// instagram icon
+.scripter-ig-link {
+  ::ng-deep {
+    svg {
+      @include box(17.6px);
+    }
+  }
+
+  margin-left: 10px;
+}
+
+// github icon
+.scripter-github-link {
+  ::ng-deep {
+    svg {
+      width: 19.5px;
+    }
+  }
+
+  margin-left: 7px;
+}

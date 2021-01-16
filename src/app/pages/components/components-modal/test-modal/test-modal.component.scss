@@ -1,0 +1,8 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include padding(20px);
+  display: block;
+  background-color: $white;
+}

@@ -1,0 +1,30 @@
+<!-- top bar -->
+<div class="scripter-top-bar"></div>
+
+<!-- container -->
+<div
+  class="scripter-page-container">
+  <!-- list header -->
+  <app-header
+    [scrollContainer]="elementRef"></app-header>
+
+  <!-- post list header -->
+  <app-post-list-header></app-post-list-header>
+
+  <!-- post list container -->
+  <div class="scripter-post-list-container">
+    <!-- post list item -->
+    <app-post-list-item
+      *ngFor="let item of posts"
+      [post]="item"
+      baseUrl="/post/view"></app-post-list-item>
+
+    <!-- loading spot -->
+    <app-loading-spot
+      *ngIf="loading"
+      [size]="50"></app-loading-spot>
+  </div>
+</div>
+
+<!-- footer -->
+<app-footer></app-footer>

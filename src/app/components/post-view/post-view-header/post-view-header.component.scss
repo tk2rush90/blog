@@ -1,0 +1,54 @@
+@import "../../../styles/mixins";
+@import "../../../styles/props";
+
+:host {
+  @include flex(flex-start, null, column);
+  position: relative;
+}
+
+// post actions
+.scripter-actions {
+  @include flex(center, flex-end);
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: calc(100% + 10px);
+}
+
+// date label
+.scripter-date {
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: $light-slate-grey;
+}
+
+// post title
+.scripter-title {
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 700;
+  margin-top: 5px;
+  width: 100%;
+  word-break: break-word;
+}
+
+// button default
+.scripter-inline-button {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+// button space
+.scripter-inline-button + .scripter-inline-button {
+  margin-left: 14px;
+}
+
+// loading spot
+app-loading-spot {
+  @include box(100%);
+  @include topLeft;
+  position: fixed;
+  background-color: rgba($black, .8);
+  z-index: 10;
+}

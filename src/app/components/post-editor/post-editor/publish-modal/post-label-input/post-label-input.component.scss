@@ -1,0 +1,18 @@
+@import "../../../../../styles/mixins";
+@import "../../../../../styles/props";
+
+:host {
+  display: block;
+}
+
+// registered labels
+.scripter-label-container {
+  @include flex(flex-start);
+  margin-top: 10px;
+}
+
+// post label
+app-post-label {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}

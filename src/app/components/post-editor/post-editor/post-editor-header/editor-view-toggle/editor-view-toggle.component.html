@@ -1,0 +1,6 @@
+<!-- toggle icons -->
+<app-view-toggle-icon
+  (click)="setValue(item)"
+  *ngFor="let item of iconTypes"
+  [class.scripter-active]="value === item"
+  [type]="item"></app-view-toggle-icon>

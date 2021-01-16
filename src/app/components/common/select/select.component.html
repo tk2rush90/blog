@@ -1,0 +1,48 @@
+<!-- container -->
+<div
+  (click)="opened ? close() : open()"
+  class="scripter-container">
+  <!-- input element -->
+  <input
+    [class.ng-dirty]="dirty"
+    [class.ng-invalid]="invalid"
+    [class.ng-touched]="touched"
+    [value]="label"
+    [placeholder]="placeholder"
+    appInput
+    readonly/>
+
+  <!-- arrow down -->
+  <div class="scripter-icon-container">
+    <app-icon-keyboard-arrow-down
+      [class.scripter-reverse]="opened"></app-icon-keyboard-arrow-down>
+  </div>
+</div>
+
+<!-- options container -->
+<div
+  (autoClose)="close()"
+  *ngIf="opened"
+  [positionContainer]="elementRef"
+  [closerContainer]="elementRef"
+  [closeOnScroll]="true"
+  appAutoCloser
+  appAutoPositioner
+  appAutoScrollContainer
+  class="scripter-options-container"
+  horizontalPosition="inner-left"
+  verticalPosition="outer-bottom">
+  <!-- render option item -->
+  <div
+    (click)="onOptionClicked(item)"
+    *ngFor="let item of options"
+    [class.scripter-selected]="item.value === value"
+    [focused]="item.value === value"
+    appAutoScrollItem
+    class="scripter-option">
+    <!-- option label -->
+    <div class="scripter-option-label">
+      {{item.label}}
+    </div>
+  </div>
+</div>

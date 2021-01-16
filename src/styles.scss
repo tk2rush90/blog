@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
+
+@import "styles/mixins";
+@import "styles/props";
+@import "components/common/stroke-button/stroke-button";
+@import "components/common/inline-button/inline-button";
+@import "components/common/flat-button/flat-button";
+@import "components/common/input/input";
+@import "components/common/icons/icon-base/icon";
+
+* {
+  @include nanumGothic;
+  padding: 0;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+textarea, input, button {
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+// top bar
+.scripter-top-bar {
+  @include rect(100%, 5px);
+  @include topLeft;
+  background-color: $dim-grey;
+  position: absolute;
+
+  @include under(767px) {
+    display: none;
+  }
+}
+
+// page container
+.scripter-page-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+
+  @include under(740px) {
+    @include padding(0 20px);
+  }
+}

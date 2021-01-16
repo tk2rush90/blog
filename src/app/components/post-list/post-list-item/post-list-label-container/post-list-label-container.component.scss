@@ -1,0 +1,12 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/props";
+
+:host {
+  @include flex(center);
+}
+
+// labels space
+app-post-label {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}

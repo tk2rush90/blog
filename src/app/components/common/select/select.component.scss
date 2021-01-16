@@ -1,0 +1,78 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+  height: 40px;
+}
+
+// select container
+.scripter-container {
+  @include box(100%);
+  @include clickable();
+  user-select: none;
+  position: relative;
+}
+
+// input element
+input {
+  @include paddingRight(calc(15px + 12px + 15px));
+  @include box(100%);
+  cursor: inherit;
+}
+
+// icon container
+.scripter-icon-container {
+  @include verticalCenter;
+  position: absolute;
+  right: 15px;
+}
+
+// arrow icon
+app-icon-keyboard-arrow-down {
+  width: 12px;
+  top: 50%;
+
+  &.scripter-reverse {
+    transform: rotate(180deg);
+  }
+}
+
+$option-height: 40px;
+$option-container-height: calc(#{$option-height} * 5);
+
+// options container
+.scripter-options-container {
+  background-color: $white;
+  max-height: $option-container-height;
+  overflow: auto;
+  box-shadow: 0 5px 15px rgba($black, .3);
+}
+
+// option item
+.scripter-option {
+  @include padding(0 20px);
+  @include flex(center);
+  @include clickable();
+  height: $option-height;
+
+  &:hover {
+    background-color: darken($white, 10%);
+  }
+}
+
+// for selected option
+.scripter-option {
+  &.scripter-selected {
+    .scripter-option-label {
+      color: $summer-sky;
+    }
+  }
+}
+
+// option label
+.scripter-option-label {
+  @include ellipsis;
+  font-size: 14px;
+  width: 100%;
+}

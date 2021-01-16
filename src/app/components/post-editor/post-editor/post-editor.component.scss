@@ -1,0 +1,23 @@
+@import "../../../styles/mixins";
+@import "../../../styles/props";
+
+:host {
+  @include flex(stretch, null, column);
+}
+
+// editor body container
+.scripter-container {
+  @include flex(stretch);
+  @include itemFlex(1, 1, 0);
+  height: calc(100% - 70px);
+  width: 100%;
+}
+
+// editor and previewer sizes
+.scripter-container {
+  app-post-editor-textarea,
+  app-post-editor-previewer {
+    @include itemFlex(1, 1, 50%);
+    height: 100%;
+  }
+}

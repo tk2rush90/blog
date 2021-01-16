@@ -1,0 +1,21 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/props";
+
+:host {
+  @include padding(40px);
+  display: block;
+
+  @include under(767px) {
+    @include padding(20px);
+  }
+}
+
+// textarea
+textarea {
+  @include box(100%);
+  display: block;
+  overflow: auto;
+  font-size: 15px;
+  line-height: 1.6;
+  resize: none;
+}

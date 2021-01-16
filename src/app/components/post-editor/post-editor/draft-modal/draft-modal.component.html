@@ -1,0 +1,26 @@
+<app-modal-container>
+  <app-modal-header>
+    초안목록
+  </app-modal-header>
+
+  <app-modal-content
+    (scrollEnd)="onContentScrollEnd()"
+    appScrollDetector>
+    <!-- render draft items -->
+    <app-draft-list-item
+      (click)="selectPost(item)"
+      *ngFor="let item of posts"
+      [post]="item"></app-draft-list-item>
+
+    <ng-container *ngIf="empty">
+      <div class="scripter-empty-text">
+        초안이 없습니다
+      </div>
+    </ng-container>
+
+    <!-- loading spot -->
+    <app-loading-spot
+      *ngIf="loading"
+      [size]="50"></app-loading-spot>
+  </app-modal-content>
+</app-modal-container>

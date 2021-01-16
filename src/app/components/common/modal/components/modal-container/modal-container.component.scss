@@ -1,0 +1,8 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+  box-shadow: 0 5px 15px rgba($black, .3);
+  background-color: $eclipse;
+}

@@ -1,0 +1,25 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include box(18px);
+  @include flex(center, space-between);
+  @include clickable();
+  user-select: none;
+}
+
+// icon default class
+.scripter-icon {
+  @include rect(8px, 18px);
+  border-radius: 3px;
+}
+
+// filled icon
+.scripter-filled {
+  background-color: $white;
+}
+
+// outlined icon
+.scripter-outlined {
+  @include border(1px solid $white);
+}

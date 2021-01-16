@@ -1,0 +1,40 @@
+@import "styles/mixins";
+@import "styles/props";
+
+@mixin inlineButton($color, $font-color, $hover-color, $active-color) {
+  @include customAttribute('scripter-color', $color) {
+    color: $font-color;
+
+    &:not(:disabled) {
+      @include clickable();
+
+      &:hover {
+        color: $hover-color;
+      }
+
+      &:active {
+        color: $active-color;
+      }
+    }
+
+    &:disabled {
+      opacity: .3;
+    }
+
+    @content;
+  }
+}
+
+// inline button
+.scripter-inline-button {
+  font-size: 14px;
+
+  // for grey button
+  @include inlineButton('grey', $silver, darken($silver, 5%), darken($silver, 10%));
+
+  // for semi white
+  @include inlineButton('semi-white', $gainsboro, darken($gainsboro, 5%), darken($gainsboro, 10%));
+
+  // for black button
+  @include inlineButton('black', $black, lighten($black, 40%), lighten($black, 60%));
+}

@@ -1,0 +1,19 @@
+<ng-container [ngSwitch]="type">
+  <!-- both -->
+  <ng-container *ngSwitchCase="both">
+    <div class="scripter-icon scripter-filled"></div>
+    <div class="scripter-icon scripter-filled"></div>
+  </ng-container>
+
+  <!-- left -->
+  <ng-container *ngSwitchCase="left">
+    <div class="scripter-icon scripter-filled"></div>
+    <div class="scripter-icon scripter-outlined"></div>
+  </ng-container>
+
+  <!-- right -->
+  <ng-container *ngSwitchCase="right">
+    <div class="scripter-icon scripter-outlined"></div>
+    <div class="scripter-icon scripter-filled"></div>
+  </ng-container>
+</ng-container>

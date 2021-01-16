@@ -1,0 +1,27 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/props";
+
+:host {
+  display: block;
+  width: 100%;
+  max-width: 450px;
+}
+
+// modal content
+app-modal-content {
+  height: 400px;
+  overflow: auto;
+}
+
+// loading spot style
+app-loading-spot {
+  height: 60px;
+}
+
+// empty posts text
+.scripter-empty-text {
+  @include flex(center, center);
+  height: 60px;
+  font-size: 12px;
+  color: $white;
+}

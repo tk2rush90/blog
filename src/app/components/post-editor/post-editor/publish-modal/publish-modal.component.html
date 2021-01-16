@@ -1,0 +1,95 @@
+<app-modal-container>
+  <app-modal-header>
+    발행하기
+  </app-modal-header>
+
+  <app-modal-content>
+    <!-- form -->
+    <form [formGroup]="group">
+      <!-- title -->
+      <app-post-title-input
+        [formControl]="title"
+        required></app-post-title-input>
+
+      <!-- category -->
+      <app-post-category-select
+        [formControl]="category"
+        required></app-post-category-select>
+
+      <!-- labels -->
+      <app-post-label-input
+        [formControl]="labels"></app-post-label-input>
+    </form>
+  </app-modal-content>
+
+  <app-modal-actions>
+    <app-loading-spot
+      *ngIf="loading; else actions"
+      [size]="50"></app-loading-spot>
+
+    <ng-template #actions>
+      <ng-container *ngIf="isDraft; else published">
+        <button
+          (click)="deletePost()"
+          appInlineButton
+          color="semi-white">
+          삭제
+        </button>
+
+        <button
+          (click)="updatePost()"
+          [disabled]="group.invalid"
+          appInlineButton
+          color="semi-white">
+          초안수정
+        </button>
+
+        <button
+          (click)="publishPost()"
+          [disabled]="group.invalid"
+          appFlatButton
+          color="grey">
+          발행하기
+        </button>
+      </ng-container>
+
+      <ng-template #published>
+        <ng-container *ngIf="isEditing; else newPost">
+          <button
+            (click)="revertPost()"
+            [disabled]="group.invalid"
+            appInlineButton
+            color="semi-white">
+            초안으로 되돌리기
+          </button>
+
+          <button
+            (click)="updatePost()"
+            [disabled]="group.invalid"
+            appFlatButton
+            color="grey">
+            수정하기
+          </button>
+        </ng-container>
+
+        <ng-template #newPost>
+          <button
+            (click)="createDraftPost()"
+            [disabled]="group.invalid"
+            appInlineButton
+            color="semi-white">
+            초안등록
+          </button>
+
+          <button
+            (click)="createPost()"
+            [disabled]="group.invalid"
+            appFlatButton
+            color="grey">
+            발행하기
+          </button>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+  </app-modal-actions>
+</app-modal-container>
