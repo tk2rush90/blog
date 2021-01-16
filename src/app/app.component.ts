@@ -4,6 +4,12 @@ import {AuthService} from '@scripter/services/common/auth.service';
 import {AuthResponse} from '@scripter/models/google-models';
 import {SubscriptionService} from '@scripter/services/subscription/subscription.service';
 import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
+import {environment} from '../environments/environment';
+
+const {
+  previousPathKey,
+} = environment;
 
 @Component({
   selector: 'app-root',
@@ -14,20 +20,37 @@ import {Observable} from 'rxjs';
   ]
 })
 export class AppComponent {
-  title = 'scripter-log';
   // auth response
   private _authResponse: AuthResponse | undefined | void;
 
   constructor(
+    private router: Router,
     private ngZone: NgZone,
     private authService: AuthService,
     private storageService: StorageService,
     private changeDetectorRef: ChangeDetectorRef,
     private subscriptionService: SubscriptionService,
   ) {
+    this._navigateToPreviousPath();
     this._subscribeSigningSucceeded();
     this._subscribeSigningFailed();
     this._restoreAuthResponse();
+  }
+
+  /**
+   * navigate to previous path
+   */
+  private _navigateToPreviousPath(): void {
+    const previousPath = localStorage.getItem(previousPathKey);
+
+    if (previousPath) {
+      this.ngZone.run(() => {
+        this.router.navigate([previousPath.replace('/blog', '')])
+          .then(() => {
+            localStorage.setItem(previousPathKey, '');
+          });
+      });
+    }
   }
 
   /**

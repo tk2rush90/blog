@@ -20,6 +20,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "es6-promise-polyfill",
+              "url"
+            ],
             "outputPath": "dist/scripter-log",
             "index": "src/index.html",
             "main": "src/main.ts",
