@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {PostEditorService} from '@scripter/services/component/post-editor.service';
 import {SubscriptionService} from '@scripter/services/subscription/subscription.service';
@@ -14,6 +14,7 @@ import {ToastService, ToastType} from '@scripter/components/common/toast/service
 import {Router} from '@angular/router';
 import {DRAFT} from '@scripter/utils/type.util';
 import {getPostErrorMessage} from '@scripter/utils/post-error.util';
+import {MODAL_REF, ModalRef} from '@scripter/components/common/modal/models/modal-ref';
 
 @Component({
   selector: 'app-publish-modal',
@@ -44,6 +45,7 @@ export class PublishModalComponent implements OnInit, OnDestroy {
   private _authResponse: AuthResponse | undefined;
 
   constructor(
+    @Inject(MODAL_REF) private modalRef: ModalRef<PublishModalComponent>,
     private router: Router,
     private authService: AuthService,
     private toastService: ToastService,
@@ -116,7 +118,6 @@ export class PublishModalComponent implements OnInit, OnDestroy {
    */
   private _patchGroupValues(): void {
     if (this._post) {
-      console.log(this._post);
       this.title.patchValue(this._post.title || '');
       this.category.patchValue(this._post.category || '');
       this.labels.patchValue(this._post.labels.join(',') || '');
@@ -151,6 +152,8 @@ export class PublishModalComponent implements OnInit, OnDestroy {
               this.toastService.open({
                 message: '초안이 등록되었습니다',
               });
+
+              this.modalRef.close();
             }
           },
           error: err => {
@@ -218,10 +221,15 @@ export class PublishModalComponent implements OnInit, OnDestroy {
 
                 if (res.status !== 'DRAFT') {
                   this._toPostView(res);
+                } else {
+                  this.modalRef.close();
                 }
               }
             }
           },
+          error: err => {
+            this._handleErrorResponse(err);
+          }
         });
 
       this.subscriptionService.store('_updateDraftPost', sub);
@@ -255,6 +263,8 @@ export class PublishModalComponent implements OnInit, OnDestroy {
             this.toastService.open({
               message: '초안으로 되돌렸습니다',
             });
+
+            this.modalRef.close();
           }
         },
         error: err => {

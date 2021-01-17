@@ -138,8 +138,6 @@ export function getAngleBetweenTwoLines(line1: Point[], line2: Point[]): number 
   const t1 = Math.atan((line1[1].y - line1[0].y) / (line1[1].x - line1[0].x));
   const t2 = Math.atan((line2[1].y - line2[0].y) / (line2[1].x - line2[0].x));
 
-  console.log(t2 - t1);
-
   return t2 - t1;
 }
 

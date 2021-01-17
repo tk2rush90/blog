@@ -18,8 +18,6 @@ export class ComponentsAdminLoginComponent implements OnInit {
   }
 
   onSignedIn(user: GoogleUser): void {
-    console.log(user.getAuthResponse());
-
     this.ngZone.run(() => {
       this.router.navigate(['/components/post-editor']);
     });
