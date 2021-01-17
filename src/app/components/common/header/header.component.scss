@@ -16,6 +16,7 @@
     &.scripter-scrolled {
       box-shadow: 0 3px 6px rgba($black, .16);
       backdrop-filter: blur(10px);
+      z-index: 200;
     }
   }
 }
