@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1610977056941,
+  "timestamp": 1610977181968,
   "index": "/blog/index.html",
   "assetGroups": [
     {
@@ -99,7 +99,7 @@
     "/blog/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
     "/blog/index.html": "930772bd9a6810e3bd0e40a438fddaae677a3deb",
     "/blog/main.e28c2a8fbba6fb97b822.js": "b01f4142b52ef8c1b0796207dbf6c9631dc51117",
-    "/blog/manifest.webmanifest": "a82207855e2a822d4ce36046921e14456d3120b8",
+    "/blog/manifest.webmanifest": "5bbc058324185d0bb04c8b88ff7e123baf3eae09",
     "/blog/polyfills.a7ceb7cc6cb2482a755c.js": "93957af3d4c9b309c868fa5a4c3ff70728485d5e",
     "/blog/runtime.e17a461b06716074dcdc.js": "4870a2d6bad1566ea59b704812da6bc39e7eb83b",
     "/blog/scripts.c3c897fa75df50610e9c.js": "28e286a601f9f9c8eea8b1440a2e18a63e3a362d",
