@@ -16,6 +16,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 const {
   clientId,
+  assetsPrefix,
 } = environment;
 
 const gapiClientConfig: NgGapiClientConfig = {
@@ -44,7 +45,7 @@ const gapiClientConfig: NgGapiClientConfig = {
     BrowserAnimationsModule,
     ToastModule,
     RouterProgressModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register(`${assetsPrefix}/ngsw-worker.js`, { enabled: environment.production }),
   ],
   providers: [
     {
