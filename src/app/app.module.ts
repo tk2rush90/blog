@@ -12,6 +12,7 @@ import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastModule} from '@scripter/components/common/toast/toast.module';
 import {RouterProgressModule} from '@scripter/components/common/router-progress/router-progress.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const {
   clientId,
@@ -43,6 +44,7 @@ const gapiClientConfig: NgGapiClientConfig = {
     BrowserAnimationsModule,
     ToastModule,
     RouterProgressModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     {
