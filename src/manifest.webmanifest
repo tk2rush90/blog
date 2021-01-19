@@ -1,8 +1,8 @@
 {
   "name": "scripter-log",
   "short_name": "scripter-log",
-  "theme_color": "#CA0060",
-  "background_color": "#FFFFFF",
+  "theme_color": "#8E0043",
+  "background_color": "transparent",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
