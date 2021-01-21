@@ -602,7 +602,7 @@ export class ShadowsContainer extends AbstractAnimationScene {
    */
   wait(): void {
     if (this.time >= this._waitingFrame) {
-      this.showUp();
+      // this.showUp();
     }
   }
 
@@ -639,6 +639,8 @@ export enum SnowGroundStatus {
  * snow ground
  */
 export class SnowGround extends AbstractAnimationScene {
+  // emit when the ground showed up
+  showedUp: EventEmitter<void> = new EventEmitter<void>();
   // ground graphics
   graphics: PIXI.Graphics = new PIXI.Graphics();
   // snow ground status
@@ -688,6 +690,7 @@ export class SnowGround extends AbstractAnimationScene {
     this._draw();
 
     if (this.time >= this._showUpSpeed) {
+      this.showedUp.emit();
       this.onDestroy.emit();
     }
   }
@@ -1584,8 +1587,21 @@ export class Intro2020WinterComponent implements OnInit, AfterViewInit, OnDestro
       height: this._height,
     });
 
+    this._subscribeSnowGroundShowedUp();
     this._addSnowGroundToStage();
     this._addSnowGroundToScene();
+  }
+
+  /**
+   * subscribe snow ground shows up state
+   */
+  private _subscribeSnowGroundShowedUp(): void {
+    const sub = this._snowGround.showedUp
+      .subscribe(() => {
+        this._shadowsContainer?.showUp();
+      });
+
+    this.subscriptionService.store('_subscribeSnowGroundShowedUp', sub);
   }
 
   /**
