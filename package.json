@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:github": "ng build --prod --output-path=docs --deploy-url=/blog/ --base-href=/blog && npm run copy:404",
+    "delete:build": "node scripts/delete.js",
+    "build:github": "npm run delete:build && ng build --prod --output-path=docs --deploy-url=/blog/ --base-href=/blog && npm run copy:404",
     "copy:404": "copy \".\\src\\404.html\" \".\\docs\\\""
   },
   "private": true,

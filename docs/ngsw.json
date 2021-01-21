@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1611012728660,
+  "timestamp": 1611238659239,
   "index": "/blog/index.html",
   "assetGroups": [
     {
@@ -56,6 +56,8 @@
         "/blog/assets/icons/icon-512x512.png",
         "/blog/assets/icons/icon-72x72.png",
         "/blog/assets/icons/icon-96x96.png",
+        "/blog/assets/images/banner-og.png",
+        "/blog/assets/images/banner-twitter.png",
         "/blog/assets/images/scripter-title.png",
         "/blog/assets/intro/intro-2020-winter/house.svg",
         "/blog/assets/intro/intro-2020-winter/mountain.svg",
@@ -92,6 +94,8 @@
     "/blog/assets/icons/icon-512x512.png": "37a792810db9504305b20048afa0723bd167c6a1",
     "/blog/assets/icons/icon-72x72.png": "de8dcb63f3bb49bcca2e097abed028b16875bb93",
     "/blog/assets/icons/icon-96x96.png": "20151ae79a91f4b2ce7cf792697665c447ff952d",
+    "/blog/assets/images/banner-og.png": "5f08d1748e860fa2e97ee1d2fff805012fcfca6d",
+    "/blog/assets/images/banner-twitter.png": "004655aa5bf27faedde2306a75a18c331c73de77",
     "/blog/assets/images/scripter-title.png": "c5dd965f19f942fe27dd881b2b5460c42b401466",
     "/blog/assets/intro/intro-2020-winter/house.svg": "b71431c818dd460b8795dc067f49b6934f6a4de8",
     "/blog/assets/intro/intro-2020-winter/mountain.svg": "84811acc37106f750bca34c52e6d306ae9b1e2b6",
@@ -99,7 +103,7 @@
     "/blog/assets/intro/intro-2020-winter/tree.svg": "f78693b75dce9593f9f03bedbab1caee0ac210a3",
     "/blog/common.6084ff8ca7976cf2bbe1.js": "263de2f2cdb5b24e97478a884569ee007ef008c1",
     "/blog/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/blog/index.html": "1a8df68433cc29ff22b6af139347bd855fb91d5c",
+    "/blog/index.html": "feca4834b747383b141259587d3042249c1ea4ed",
     "/blog/main.31bc3453807dbe903a83.js": "864575cf05acc21641e2ad1fafdb38e2f71cd75b",
     "/blog/manifest.webmanifest": "6b98a3171d78306a9eb6e1029149342666f590e5",
     "/blog/polyfills.a7ceb7cc6cb2482a755c.js": "93957af3d4c9b309c868fa5a4c3ff70728485d5e",
