@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1611238659239,
+  "timestamp": 1611239124822,
   "index": "/blog/index.html",
   "assetGroups": [
     {
@@ -94,7 +94,7 @@
     "/blog/assets/icons/icon-512x512.png": "37a792810db9504305b20048afa0723bd167c6a1",
     "/blog/assets/icons/icon-72x72.png": "de8dcb63f3bb49bcca2e097abed028b16875bb93",
     "/blog/assets/icons/icon-96x96.png": "20151ae79a91f4b2ce7cf792697665c447ff952d",
-    "/blog/assets/images/banner-og.png": "5f08d1748e860fa2e97ee1d2fff805012fcfca6d",
+    "/blog/assets/images/banner-og.png": "54e4af23edbb9d896bfc7cd82c9c00905ac42240",
     "/blog/assets/images/banner-twitter.png": "004655aa5bf27faedde2306a75a18c331c73de77",
     "/blog/assets/images/scripter-title.png": "c5dd965f19f942fe27dd881b2b5460c42b401466",
     "/blog/assets/intro/intro-2020-winter/house.svg": "b71431c818dd460b8795dc067f49b6934f6a4de8",
