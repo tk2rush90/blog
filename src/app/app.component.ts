@@ -1,12 +1,13 @@
-import {ChangeDetectorRef, Component, Inject, NgZone} from '@angular/core';
+import {ApplicationRef, ChangeDetectorRef, Component, Inject, NgZone} from '@angular/core';
 import {StorageService} from '@scripter/services/common/storage.service';
 import {AuthService} from '@scripter/services/common/auth.service';
 import {AuthResponse} from '@scripter/models/google-models';
 import {SubscriptionService} from '@scripter/services/subscription/subscription.service';
-import {Observable} from 'rxjs';
+import {concat, interval, Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {SwUpdate} from '@angular/service-worker';
 import {DOCUMENT} from '@angular/common';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -28,10 +29,12 @@ export class AppComponent {
     private ngZone: NgZone,
     private swUpdate: SwUpdate,
     private authService: AuthService,
+    private applicationRef: ApplicationRef,
     private storageService: StorageService,
     private changeDetectorRef: ChangeDetectorRef,
     private subscriptionService: SubscriptionService,
   ) {
+    this._checkUpdateInterval();
     this._checkUpdate();
     this._subscribeSigningSucceeded();
     this._subscribeSigningFailed();
@@ -111,10 +114,25 @@ export class AppComponent {
   }
 
   /**
+   * check update in interval
+   */
+  private _checkUpdateInterval(): void {
+    // Allow the app to stabilize first, before starting polling for updates with `interval()`.
+    const appIsStable$ = this.applicationRef.isStable.pipe(first(isStable => isStable));
+    const everySixHours$ = interval(6 * 60 * 60 * 1000);
+    const everySixHoursOnceAppIsStable$ = concat(appIsStable$, everySixHours$);
+
+    const sub = everySixHoursOnceAppIsStable$.subscribe(() => this.swUpdate.checkForUpdate());
+
+    this.subscriptionService.store('_checkUpdateInterval', sub);
+  }
+
+  /**
    * check application update
    */
   private _checkUpdate(): void {
     this.swUpdate.available.subscribe(event => {
+      console.log(event);
       this.showUpdate = true;
     });
   }

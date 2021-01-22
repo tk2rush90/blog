@@ -84,6 +84,10 @@ markdown {
       margin: 0 auto;
     }
 
+    img {
+      @include border(1px solid $gainsboro);
+    }
+
     table {
       max-width: 100%;
     }

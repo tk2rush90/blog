@@ -43,6 +43,7 @@ app-icon-close {
   }
 
   @include clickable();
+  @include box(11.06px);
 }
 
 // button
