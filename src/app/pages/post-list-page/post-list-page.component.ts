@@ -49,14 +49,21 @@ export class PostListPageComponent extends ScrollDetectorDirective implements On
   }
 
   /**
+   * reset the result
+   */
+  private _resetResult(): void {
+    this._response = undefined;
+    this.posts = [];
+  }
+
+  /**
    * subscribe route params to get post by category
    */
   private _subscribeRouteParams(): void {
     const sub = this.activatedRoute.paramMap
       .subscribe(res => {
         this._category = res.get('category') || undefined;
-        this._response = undefined;
-        this.posts = [];
+        this._resetResult();
         this._getPostByCategory();
       });
 

@@ -1,2 +1,6 @@
+<!-- search input -->
+<app-post-search></app-post-search>
+
 <!-- categories -->
-<app-post-categories></app-post-categories>
+<app-post-categories
+  *ngIf="!hideCategories"></app-post-categories>

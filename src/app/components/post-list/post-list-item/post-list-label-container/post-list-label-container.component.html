@@ -1,9 +1,15 @@
 <!-- displayable posts -->
-<app-post-label *ngFor="let item of labels">
+<app-post-label
+  (click)="onClickLabel(item)"
+  *ngFor="let item of labels"
+  [activated]="isActivated(item)">
   {{item}}
 </app-post-label>
 
 <!-- display remaining posts -->
-<app-post-label *ngIf="remainingLabels > 0">
-  + {{remainingLabels}}
+<app-post-label
+  (click)="showAllLabels()"
+  *ngIf="remainingLabels.length > 0"
+  [activated]="hiddenActivated">
+  + {{remainingLabels.length}}
 </app-post-label>

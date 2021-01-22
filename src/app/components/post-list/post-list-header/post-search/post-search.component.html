@@ -1,0 +1,16 @@
+<form
+  (ngSubmit)="onSubmit()"
+  [formGroup]="group">
+  <!-- search icon -->
+  <app-icon-search></app-icon-search>
+
+  <!-- input -->
+  <input
+    [formControl]="search"
+    type="text"
+    placeholder="Search..."
+    spellcheck="false"/>
+
+  <!-- hidden button -->
+  <button hidden></button>
+</form>

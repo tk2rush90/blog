@@ -4,3 +4,8 @@
 :host {
   @include flex(flex-start, null, column);
 }
+
+// categories space
+app-post-categories {
+  margin-top: 20px;
+}

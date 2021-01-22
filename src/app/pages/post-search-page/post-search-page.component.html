@@ -1,0 +1,40 @@
+<!-- top bar -->
+<div class="scripter-top-bar"></div>
+
+<!-- container -->
+<div
+  class="scripter-page-container">
+  <!-- list header -->
+  <app-header
+    [scrollContainer]="elementRef"></app-header>
+
+  <!-- post list header -->
+  <app-post-list-header
+    [hideCategories]="true"></app-post-list-header>
+
+  <!-- post list container -->
+  <div class="scripter-post-list-container">
+    <!-- post list item -->
+    <app-post-list-item
+      *ngFor="let item of posts"
+      [searchingLabels]="labels"
+      [post]="item"
+      baseUrl="/post/view"></app-post-list-item>
+
+    <ng-container *ngIf="empty">
+      <div class="scripter-empty-container">
+        <div class="scripter-empty-text">
+          표시할 글이 없습니다.
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- loading spot -->
+    <app-loading-spot
+      *ngIf="loading"
+      [size]="50"></app-loading-spot>
+  </div>
+</div>
+
+<!-- footer -->
+<app-footer></app-footer>

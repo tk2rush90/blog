@@ -1,0 +1,30 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+}
+
+// form style
+form {
+  @include flex(center);
+}
+
+// search icon
+app-icon-search {
+  @include box(16px);
+}
+
+// search input
+input {
+  @include borderBottom(1px solid $silver);
+  margin-left: 10px;
+  width: 130px;
+  height: 30px;
+  font-size: 12px;
+  color: $black;
+
+  &::placeholder {
+    color: rgba($black, .3);
+  }
+}

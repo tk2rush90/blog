@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-post-list-header',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-list-header.component.scss']
 })
 export class PostListHeaderComponent implements OnInit {
+  // hidden flag for categories
+  @Input() hideCategories = false;
 
   constructor() { }
 

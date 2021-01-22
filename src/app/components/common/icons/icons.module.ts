@@ -6,6 +6,7 @@ import { IconKeyboardArrowDownComponent } from './icon-keyboard-arrow-down/icon-
 import { IconInstagramComponent } from './icon-instagram/icon-instagram.component';
 import { IconGithubComponent } from './icon-github/icon-github.component';
 import { IconCloseComponent } from './icon-close/icon-close.component';
+import { IconSearchComponent } from './icon-search/icon-search.component';
 
 
 
@@ -16,14 +17,16 @@ import { IconCloseComponent } from './icon-close/icon-close.component';
     IconKeyboardArrowDownComponent,
     IconInstagramComponent,
     IconGithubComponent,
-    IconCloseComponent
+    IconCloseComponent,
+    IconSearchComponent
   ],
   exports: [
     IconCancelComponent,
     IconKeyboardArrowDownComponent,
     IconInstagramComponent,
     IconGithubComponent,
-    IconCloseComponent
+    IconCloseComponent,
+    IconSearchComponent
   ],
   imports: [
     CommonModule

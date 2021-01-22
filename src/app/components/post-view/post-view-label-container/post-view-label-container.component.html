@@ -6,6 +6,7 @@
 <!-- container -->
 <div class="scripter-container">
   <app-post-label
+    (click)="onClickLabel(item)"
     *ngFor="let item of labels">
     {{item}}
   </app-post-label>

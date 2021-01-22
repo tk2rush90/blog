@@ -95,7 +95,7 @@ export class PostModel extends BaseModel implements IPostModel {
   toRequest(): IPostModel {
     return {
       id: this.id,
-      published: new Date().toISOString(),
+      published: this.published ? undefined : new Date().toISOString(),
       updated: new Date().toISOString(),
       title: this.title,
       content: this.content,

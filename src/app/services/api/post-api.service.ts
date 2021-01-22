@@ -36,7 +36,7 @@ export class PostApiService extends ApiBaseService {
   }
 
   /**
-   * get posts by category
+   * get posts
    * @param request request object
    * @param authResponse auth response of google blogger
    */
@@ -46,8 +46,23 @@ export class PostApiService extends ApiBaseService {
         labels: request.category,
         pageToken: request.pageToken,
         status: request.status,
+        orderBy: 'published',
       }),
       headers: this._createAuthHeader(authResponse),
+    }).pipe(map(res => {
+      return new PostListResponseModel(res);
+    }));
+  }
+
+  /**
+   * search posts
+   * @param search search string
+   */
+  searchPosts(search: string): Observable<PostListResponseModel> {
+    return this.http.get<IPostListResponseModel>(this.endpoint('/search'), {
+      params: this._getHttpParams({
+        q: search,
+      }),
     }).pipe(map(res => {
       return new PostListResponseModel(res);
     }));

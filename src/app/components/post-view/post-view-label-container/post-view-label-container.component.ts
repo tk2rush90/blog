@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-post-view-label-container',
@@ -9,9 +10,22 @@ export class PostViewLabelContainerComponent implements OnInit {
   // post labels
   @Input() labels: string[] = [];
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
 
+  /**
+   * navigate to search page with label
+   * @param label clicked label
+   */
+  onClickLabel(label: string): void {
+    this.router.navigate(['/post/search/labels'], {
+      queryParams: {
+        labels: label,
+      },
+    });
+  }
 }

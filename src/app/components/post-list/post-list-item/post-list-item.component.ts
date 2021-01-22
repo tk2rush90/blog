@@ -17,6 +17,8 @@ export class PostListItemComponent implements OnInit {
   }
   // post base url
   @Input() baseUrl = '';
+  // searching labels
+  @Input() searchingLabels = '';
   // content intro
   intro = '';
   // post model

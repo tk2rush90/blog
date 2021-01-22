@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/post-view-page/post-view-page.module').then(m => m.PostViewPageModule)
   },
   {
+    path: 'post/search',
+    loadChildren: () => import('./pages/post-search-page/post-search-page.module').then(m => m.PostSearchPageModule)
+  },
+  {
     path: 'post/editor',
     loadChildren: () => import('./pages/post-editor-page/post-editor-page.module').then(m => m.PostEditorPageModule),
     canActivate: [

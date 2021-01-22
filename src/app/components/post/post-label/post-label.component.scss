@@ -5,18 +5,31 @@
   @include flex(center, center);
   @include border(1px solid $silver);
   @include padding(0 15px);
+  @include clickable();
   border-radius: 15px;
   height: 30px;
   font-size: 11px;
   font-weight: 700;
   color: $silver;
 
+  // activated
+  &.scripter-activated {
+    background-color: $razzmatazz;
+    border: none;
+    color: $white;
+  }
+
   // deletable
   &.scripter-deletable {
-    @include clickable();
-
     &:hover {
       background-color: lighten($silver, 15%);
+    }
+  }
+
+  &:not(.scripter-activated) {
+    &:hover {
+      border-color: $black;
+      color: black;
     }
   }
 }
