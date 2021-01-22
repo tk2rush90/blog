@@ -1,0 +1,15 @@
+<!-- container -->
+<div class="scripter-container">
+  <p>
+    새로운 버전이 있습니다.<br/>
+    업데이트 하시겠습니까?
+  </p>
+
+  <!-- close icon -->
+  <app-icon-close (click)="closeClick.emit()"></app-icon-close>
+</div>
+
+<!-- update button -->
+<button (click)="confirmClick.emit()" appFlatButton color="grey">
+  업데이트 하기
+</button>

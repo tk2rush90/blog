@@ -33,6 +33,4 @@ export const commonEnvironments = {
   githubUrl: 'https://github.com/tk2rush90',
   // tablet breaking width
   tabletBreakingWidth: 768,
-  // key of previous path
-  previousPathKey: 'SCRIPTER_PREV_PATH',
 };

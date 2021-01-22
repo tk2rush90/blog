@@ -10,3 +10,9 @@
 
 <!-- toast outlet -->
 <app-toast-outlet></app-toast-outlet>
+
+<!-- update checker -->
+<app-update-checker
+  (closeClick)="showUpdate = false"
+  (confirmClick)="updateApplication()"
+  *ngIf="showUpdate"></app-update-checker>

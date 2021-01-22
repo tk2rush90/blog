@@ -1,7 +1,7 @@
 {
-  "name": "scripter-log",
-  "short_name": "scripter-log",
-  "theme_color": "#8E0043",
+  "name": "Scripter Log",
+  "short_name": "Scripter Log",
+  "theme_color": "#1E1E1E",
   "background_color": "transparent",
   "display": "standalone",
   "scope": "./",

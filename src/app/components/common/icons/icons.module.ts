@@ -5,16 +5,25 @@ import {IconBaseComponent} from '@scripter/components/common/icons/icon-base/ico
 import { IconKeyboardArrowDownComponent } from './icon-keyboard-arrow-down/icon-keyboard-arrow-down.component';
 import { IconInstagramComponent } from './icon-instagram/icon-instagram.component';
 import { IconGithubComponent } from './icon-github/icon-github.component';
+import { IconCloseComponent } from './icon-close/icon-close.component';
 
 
 
 @NgModule({
-  declarations: [IconCancelComponent, IconBaseComponent, IconKeyboardArrowDownComponent, IconInstagramComponent, IconGithubComponent],
+  declarations: [
+    IconCancelComponent,
+    IconBaseComponent,
+    IconKeyboardArrowDownComponent,
+    IconInstagramComponent,
+    IconGithubComponent,
+    IconCloseComponent
+  ],
   exports: [
     IconCancelComponent,
     IconKeyboardArrowDownComponent,
     IconInstagramComponent,
-    IconGithubComponent
+    IconGithubComponent,
+    IconCloseComponent
   ],
   imports: [
     CommonModule

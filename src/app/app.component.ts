@@ -1,15 +1,12 @@
-import {ChangeDetectorRef, Component, NgZone} from '@angular/core';
+import {ChangeDetectorRef, Component, Inject, NgZone} from '@angular/core';
 import {StorageService} from '@scripter/services/common/storage.service';
 import {AuthService} from '@scripter/services/common/auth.service';
 import {AuthResponse} from '@scripter/models/google-models';
 import {SubscriptionService} from '@scripter/services/subscription/subscription.service';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
-import {environment} from '../environments/environment';
-
-const {
-  previousPathKey,
-} = environment;
+import {SwUpdate} from '@angular/service-worker';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -20,37 +17,25 @@ const {
   ]
 })
 export class AppComponent {
+  // show update
+  showUpdate = false;
   // auth response
   private _authResponse: AuthResponse | undefined | void;
 
   constructor(
+    @Inject(DOCUMENT) private document: Document,
     private router: Router,
     private ngZone: NgZone,
+    private swUpdate: SwUpdate,
     private authService: AuthService,
     private storageService: StorageService,
     private changeDetectorRef: ChangeDetectorRef,
     private subscriptionService: SubscriptionService,
   ) {
-    this._navigateToPreviousPath();
+    this._checkUpdate();
     this._subscribeSigningSucceeded();
     this._subscribeSigningFailed();
     this._restoreAuthResponse();
-  }
-
-  /**
-   * navigate to previous path
-   */
-  private _navigateToPreviousPath(): void {
-    const previousPath = localStorage.getItem(previousPathKey);
-
-    if (previousPath) {
-      this.ngZone.run(() => {
-        this.router.navigate([previousPath.replace('/blog', '')])
-          .then(() => {
-            localStorage.setItem(previousPathKey, '');
-          });
-      });
-    }
   }
 
   /**
@@ -123,5 +108,23 @@ export class AppComponent {
     this.ngZone.run(() => {
       this.authService.authenticated = true;
     });
+  }
+
+  /**
+   * check application update
+   */
+  private _checkUpdate(): void {
+    this.swUpdate.available.subscribe(event => {
+      console.log(event);
+      this.showUpdate = true;
+    });
+  }
+
+  /**
+   * force update the application
+   */
+  updateApplication(): void {
+    this.showUpdate = false;
+    this.swUpdate.activateUpdate().then(() => this.document.location.reload());
   }
 }
