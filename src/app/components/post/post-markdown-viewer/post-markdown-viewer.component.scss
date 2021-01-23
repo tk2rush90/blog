@@ -100,7 +100,7 @@ markdown {
 
       img {
         @include border(1px solid $gainsboro);
-        margin: 0;
+        margin: 0 auto;
       }
 
       span {
@@ -122,7 +122,7 @@ markdown {
       img {
         display: block;
         width: 100%;
-        margin: 0;
+        margin: 0 auto;
       }
 
       .scripter-site-info-wrapper {
