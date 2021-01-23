@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {PostModel} from '@scripter/models/post-model';
 import {PostListResponseModel} from '@scripter/models/post-list-response-model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {SubscriptionService} from '@scripter/services/subscription/subscription.service';
 import {PostApiService} from '@scripter/services/api/post-api.service';
 import {finalize} from 'rxjs/operators';
@@ -41,6 +41,7 @@ export class PostSearchPageComponent extends ScrollDetectorDirective implements 
 
   constructor(
     public elementRef: ElementRef<HTMLElement>,
+    private router: Router,
     private toastService: ToastService,
     private activatedRoute: ActivatedRoute,
     private postApiService: PostApiService,
@@ -111,13 +112,15 @@ export class PostSearchPageComponent extends ScrollDetectorDirective implements 
           next: res => {
             this._handlePostResponse(res, pageToken);
           },
-          error: err => {
+          error: () => {
             this._showErrorMessage();
           },
         });
 
       this.subscriptionService.store('_searchPosts', sub);
       this.loading = true;
+    } else {
+      this._toHome();
     }
   }
 
@@ -138,14 +141,23 @@ export class PostSearchPageComponent extends ScrollDetectorDirective implements 
           next: res => {
             this._handlePostResponse(res, pageToken);
           },
-          error: err => {
+          error: () => {
             this._showErrorMessage();
           },
         });
 
       this.subscriptionService.store('_getPostsByLabels', sub);
       this.loading = true;
+    } else {
+      this._toHome();
     }
+  }
+
+  /**
+   * navigate to home page
+   */
+  private _toHome(): void {
+    this.router.navigate(['/']);
   }
 
   /**

@@ -5,8 +5,8 @@ import {PostModel} from '@scripter/models/post-model';
 import {PostApiService} from '@scripter/services/api/post-api.service';
 import {finalize} from 'rxjs/operators';
 import {ToastService, ToastType} from '@scripter/components/common/toast/service/toast.service';
-import {HttpErrorResponse} from '@angular/common/http';
 import {getPostErrorMessage} from '@scripter/utils/post-error.util';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post-view-page',
@@ -26,6 +26,8 @@ export class PostViewPageComponent implements OnInit {
 
   constructor(
     public elementRef: ElementRef<HTMLElement>,
+    private meta: Meta,
+    private title: Title,
     private router: Router,
     private toastService: ToastService,
     private postApiService: PostApiService,
@@ -62,6 +64,7 @@ export class PostViewPageComponent implements OnInit {
         .subscribe({
           next: res => {
             this.post = res;
+            this._updateMetaAndTitle();
           },
           error: err => {
             this.toastService.open({
@@ -75,6 +78,26 @@ export class PostViewPageComponent implements OnInit {
 
       this.subscriptionService.store('_getPostById', sub);
       this.loading = true;
+    }
+  }
+
+  /**
+   * update meta tags and title string
+   */
+  private _updateMetaAndTitle(): void {
+    if (this.post) {
+      const tags = this.post.labels.join(', ');
+
+      this.title.setTitle(this.post.title);
+      this.meta.updateTag({
+        name: 'keywords',
+        content: tags,
+      });
+
+      this.meta.updateTag({
+        name: 'description',
+        content: this.post.content.split('\n')[0],
+      });
     }
   }
 

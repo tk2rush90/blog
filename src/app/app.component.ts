@@ -4,10 +4,17 @@ import {AuthService} from '@scripter/services/common/auth.service';
 import {AuthResponse} from '@scripter/models/google-models';
 import {SubscriptionService} from '@scripter/services/subscription/subscription.service';
 import {concat, interval, Observable} from 'rxjs';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import {SwUpdate} from '@angular/service-worker';
 import {DOCUMENT} from '@angular/common';
 import {first} from 'rxjs/operators';
+import {Meta, Title} from '@angular/platform-browser';
+import {environment} from '../environments/environment';
+
+const {
+  defaultKeywords,
+  defaultDescription,
+} = environment;
 
 @Component({
   selector: 'app-root',
@@ -25,6 +32,8 @@ export class AppComponent {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
+    private meta: Meta,
+    private title: Title,
     private router: Router,
     private ngZone: NgZone,
     private swUpdate: SwUpdate,
@@ -34,6 +43,7 @@ export class AppComponent {
     private changeDetectorRef: ChangeDetectorRef,
     private subscriptionService: SubscriptionService,
   ) {
+    this._subscribeRouterChanges();
     this._checkUpdateInterval();
     this._checkUpdate();
     this._subscribeSigningSucceeded();
@@ -131,7 +141,7 @@ export class AppComponent {
    * check application update
    */
   private _checkUpdate(): void {
-    this.swUpdate.available.subscribe(event => {
+    this.swUpdate.available.subscribe(() => {
       this.showUpdate = true;
     });
   }
@@ -142,5 +152,36 @@ export class AppComponent {
   updateApplication(): void {
     this.showUpdate = false;
     this.swUpdate.activateUpdate().then(() => this.document.location.reload());
+  }
+
+  /**
+   * subscribe router changes to update meta tag
+   */
+  private _subscribeRouterChanges(): void {
+    const sub = this.router.events
+      .subscribe(res => {
+        if (res instanceof NavigationEnd) {
+          this._updateToDefaultMetaTag();
+        }
+      });
+
+    this.subscriptionService.store('_subscribeRouterChanges', sub);
+  }
+
+  /**
+   * update to default meta tag when router changed
+   */
+  private _updateToDefaultMetaTag(): void {
+    this.title.setTitle('Scripter Log');
+
+    this.meta.updateTag({
+      name: 'keywords',
+      content: defaultKeywords,
+    });
+
+    this.meta.updateTag({
+      name: 'description',
+      content: defaultDescription,
+    });
   }
 }
