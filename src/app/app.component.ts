@@ -119,10 +119,10 @@ export class AppComponent {
   private _checkUpdateInterval(): void {
     // Allow the app to stabilize first, before starting polling for updates with `interval()`.
     const appIsStable$ = this.applicationRef.isStable.pipe(first(isStable => isStable));
-    const everySixHours$ = interval(6 * 60 * 60 * 1000);
-    const everySixHoursOnceAppIsStable$ = concat(appIsStable$, everySixHours$);
+    const everyThirtyMinutes$ = interval(30 * 60 * 1000);
+    const everyThirtyMinutesOnceAppIsStable$ = concat(appIsStable$, everyThirtyMinutes$);
 
-    const sub = everySixHoursOnceAppIsStable$.subscribe(() => this.swUpdate.checkForUpdate());
+    const sub = everyThirtyMinutesOnceAppIsStable$.subscribe(() => this.swUpdate.checkForUpdate());
 
     this.subscriptionService.store('_checkUpdateInterval', sub);
   }
