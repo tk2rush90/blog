@@ -1,0 +1,11 @@
+<div class="scripter-label">
+  <ng-content></ng-content>
+</div>
+
+<ng-container [ngSwitch]="icon">
+  <app-icon-web
+    *ngSwitchCase="'web'"></app-icon-web>
+
+  <app-icon-movie-creation
+    *ngSwitchCase="'movie-creation'"></app-icon-movie-creation>
+</ng-container>

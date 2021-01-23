@@ -7,6 +7,9 @@ import { IconInstagramComponent } from './icon-instagram/icon-instagram.componen
 import { IconGithubComponent } from './icon-github/icon-github.component';
 import { IconCloseComponent } from './icon-close/icon-close.component';
 import { IconSearchComponent } from './icon-search/icon-search.component';
+import { IconConstructionComponent } from './icon-construction/icon-construction.component';
+import { IconWebComponent } from './icon-web/icon-web.component';
+import { IconMovieCreationComponent } from './icon-movie-creation/icon-movie-creation.component';
 
 
 
@@ -18,7 +21,10 @@ import { IconSearchComponent } from './icon-search/icon-search.component';
     IconInstagramComponent,
     IconGithubComponent,
     IconCloseComponent,
-    IconSearchComponent
+    IconSearchComponent,
+    IconConstructionComponent,
+    IconWebComponent,
+    IconMovieCreationComponent
   ],
   exports: [
     IconCancelComponent,
@@ -26,7 +32,10 @@ import { IconSearchComponent } from './icon-search/icon-search.component';
     IconInstagramComponent,
     IconGithubComponent,
     IconCloseComponent,
-    IconSearchComponent
+    IconSearchComponent,
+    IconConstructionComponent,
+    IconWebComponent,
+    IconMovieCreationComponent
   ],
   imports: [
     CommonModule

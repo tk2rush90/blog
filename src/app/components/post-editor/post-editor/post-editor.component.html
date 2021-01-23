@@ -7,6 +7,11 @@
   <app-post-editor-textarea
     *ngIf="showTextarea"></app-post-editor-textarea>
 
+  <!-- divider -->
+  <div
+    *ngIf="showBoth"
+    class="scripter-divider"></div>
+
   <!-- previewer -->
   <app-post-editor-previewer
     *ngIf="showPreviewer"></app-post-editor-previewer>

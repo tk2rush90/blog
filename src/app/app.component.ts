@@ -132,7 +132,6 @@ export class AppComponent {
    */
   private _checkUpdate(): void {
     this.swUpdate.available.subscribe(event => {
-      console.log(event);
       this.showUpdate = true;
     });
   }

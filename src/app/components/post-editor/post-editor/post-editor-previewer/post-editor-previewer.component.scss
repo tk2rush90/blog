@@ -5,7 +5,6 @@
   @include padding(40px);
   overflow: auto;
   display: block;
-  background-color: $dim-grey;
 
   @include under(767px) {
     @include padding(20px);

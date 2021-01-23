@@ -1,7 +1,14 @@
-<!-- view toggle button -->
-<app-editor-view-toggle
-  (ngModelChange)="onViewChange($event)"
-  [ngModel]="view"></app-editor-view-toggle>
+<!-- left container -->
+<div class="scripter-left-container">
+  <!-- view toggle button -->
+  <app-editor-view-toggle
+    (ngModelChange)="onViewChange($event)"
+    [ngModel]="view"></app-editor-view-toggle>
+
+  <!-- tools -->
+  <app-icon-construction
+    (click)="openToolsModal()"></app-icon-construction>
+</div>
 
 <!-- actions -->
 <div class="scripter-actions">

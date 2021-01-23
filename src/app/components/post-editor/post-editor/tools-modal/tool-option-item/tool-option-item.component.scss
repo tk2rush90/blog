@@ -1,0 +1,26 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, space-between);
+  @include padding(0 20px);
+  @include clickable();
+  height: 50px;
+  background-color: rgba($black, .5);
+
+  &:hover {
+    background-color: rgba($black, .3);
+  }
+}
+
+// button label
+.scripter-label {
+  font-size: 14px;
+  color: $white;
+}
+
+// web and movie creation icons
+app-icon-web, app-icon-movie-creation {
+  width: 20px;
+}
+

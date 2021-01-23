@@ -1,0 +1,15 @@
+<app-modal-container>
+  <app-modal-header>
+    도구모음
+  </app-modal-header>
+
+  <app-modal-content>
+    <app-tool-option-item (click)="openSiteAddModal()" icon="web">
+      사이트 추가
+    </app-tool-option-item>
+
+    <app-tool-option-item (click)="openVideoAddModal()" icon="movie-creation">
+      동영상 추가
+    </app-tool-option-item>
+  </app-modal-content>
+</app-modal-container>

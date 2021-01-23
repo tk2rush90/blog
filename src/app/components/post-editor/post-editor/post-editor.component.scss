@@ -17,7 +17,17 @@
 .scripter-container {
   app-post-editor-textarea,
   app-post-editor-previewer {
-    @include itemFlex(1, 1, 50%);
+    @include itemFlex(1, 1, calc((100% - 5px) / 2));
     height: 100%;
   }
+
+  .scripter-divider {
+    @include itemFlex(1, 1, 5px);
+    height: 100%;
+  }
+}
+
+// center divider
+.scripter-divider {
+  background-color: $black;
 }

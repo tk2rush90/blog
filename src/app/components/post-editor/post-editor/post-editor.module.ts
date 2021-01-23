@@ -25,6 +25,12 @@ import {SelectModule} from '@scripter/components/common/select/select.module';
 import {LoadingSpotModule} from '@scripter/components/common/loading-spot/loading-spot.module';
 import {ConfirmModalModule} from '@scripter/components/common/confirm-modal/confirm-modal.module';
 import {PostLabelModule} from '@scripter/components/post/post-label/post-label.module';
+import {IconsModule} from '@scripter/components/common/icons/icons.module';
+import { ToolsModalComponent } from './tools-modal/tools-modal.component';
+import {ToolOptionItemComponent} from '@scripter/components/post-editor/post-editor/tools-modal/tool-option-item/tool-option-item.component';
+import { SiteAddModalComponent } from './site-add-modal/site-add-modal.component';
+import {HtmlCodeCopierModule} from '@scripter/components/common/html-code-copier/html-code-copier.module';
+import { VideoAddModalComponent } from './video-add-modal/video-add-modal.component';
 
 
 
@@ -41,6 +47,10 @@ import {PostLabelModule} from '@scripter/components/post/post-label/post-label.m
     PostTitleInputComponent,
     PostCategorySelectComponent,
     PostLabelInputComponent,
+    ToolsModalComponent,
+    ToolOptionItemComponent,
+    SiteAddModalComponent,
+    VideoAddModalComponent,
   ],
   exports: [
     PostEditorComponent
@@ -63,9 +73,15 @@ import {PostLabelModule} from '@scripter/components/post/post-label/post-label.m
     LoadingSpotModule,
     ConfirmModalModule,
     PostLabelModule,
+    IconsModule,
+    HtmlCodeCopierModule,
   ],
   entryComponents: [
     DraftModalComponent,
+    PublishModalComponent,
+    ToolsModalComponent,
+    SiteAddModalComponent,
+    VideoAddModalComponent,
   ]
 })
 export class PostEditorModule { }

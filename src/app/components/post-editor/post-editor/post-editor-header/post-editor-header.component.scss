@@ -12,6 +12,25 @@
   }
 }
 
+// left container
+.scripter-left-container {
+  @include flex(center);
+}
+
+// construction icon
+app-icon-construction {
+  @include box(24px);
+  @include clickable();
+
+  &:hover {
+    opacity: .5;
+  }
+
+  &:active {
+    opacity: .7;
+  }
+}
+
 // actions
 .scripter-actions {
   @include flex(center);

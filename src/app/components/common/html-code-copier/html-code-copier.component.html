@@ -1,0 +1,11 @@
+<app-form-field>
+  <label>
+    HTML Code
+  </label>
+
+  <textarea
+    (focus)="copyHtmlCode($event)"
+    [ngModel]="html"
+    appInput
+    readonly></textarea>
+</app-form-field>

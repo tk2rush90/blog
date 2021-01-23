@@ -84,8 +84,64 @@ markdown {
       margin: 0 auto;
     }
 
-    img {
-      @include border(1px solid $gainsboro);
+    // image wrapper
+    .scripter-image-wrapper {
+      max-width: 100%;
+      margin: 0 auto;
+
+      img, span {
+        display: block;
+      }
+
+      img {
+        @include border(1px solid $gainsboro);
+      }
+
+      span {
+        font-size: 12px;
+        color: $eclipse;
+        margin-top: 10px;
+        text-align: center;
+      }
+    }
+
+    // site wrapper
+    .scripter-site-wrapper {
+      @include border(1px solid $silver);
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      width: 300px;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      .scripter-site-info-wrapper {
+        @include borderTop(1px solid $silver);
+        @include flex(flex-start, center, column);
+        @include padding(10px 20px);
+        min-height: 70px;
+      }
+
+      .scripter-site-name {
+        font-size: 14px;
+        line-height: 16px;
+        color: $black;
+      }
+
+      .scripter-site-url {
+        font-size: 12px;
+        line-height: 14px;
+        color: $silver;
+        margin-top: 5px;
+      }
+
+      .scripter-site-name, .scripter-site-url {
+        max-width: 100%;
+        word-break: break-word;
+      }
     }
 
     table {

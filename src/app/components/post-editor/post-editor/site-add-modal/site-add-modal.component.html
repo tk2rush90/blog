@@ -1,0 +1,47 @@
+<app-modal-container>
+  <app-modal-header>
+    사이트 추가
+  </app-modal-header>
+
+  <app-modal-content>
+    <!-- site name -->
+    <app-form-field>
+      <label>
+        Name
+      </label>
+
+      <input
+        (ngModelChange)="name = $event; createHtmlCode()"
+        [ngModel]="name"
+        appInput/>
+    </app-form-field>
+
+    <!-- site url -->
+    <app-form-field>
+      <label>
+        URL
+      </label>
+
+      <input
+        (ngModelChange)="url = $event; createHtmlCode()"
+        [ngModel]="url"
+        appInput/>
+    </app-form-field>
+
+    <!-- site thumbnail -->
+    <app-form-field>
+      <label>
+        Thumbnail URL
+      </label>
+
+      <input
+        (ngModelChange)="thumbnail = $event; createHtmlCode()"
+        [ngModel]="thumbnail"
+        appInput/>
+    </app-form-field>
+
+    <!-- html code copier -->
+    <app-html-code-copier
+      [ngModel]="html"></app-html-code-copier>
+  </app-modal-content>
+</app-modal-container>

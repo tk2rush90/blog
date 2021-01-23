@@ -25,5 +25,14 @@ export class PostMarkdownViewerComponent implements OnInit {
     this.markdownService.renderer.link = (href, title, text): string => {
       return `<a href="${href || ''}" title="${title || ''}" target="_blank">${text}</a>`;
     };
+
+    this.markdownService.renderer.image = (href, title, text): string => {
+      return `
+        <div class="scripter-image-wrapper">
+          <img src="${href}" alt="${text}"/>
+          <span>${text}</span>
+        </div>
+      `;
+    };
   }
 }

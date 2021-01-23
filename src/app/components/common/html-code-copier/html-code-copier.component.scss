@@ -1,0 +1,12 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  display: block;
+}
+
+textarea {
+  @include padding(12px 15px);
+  height: 200px;
+  resize: none;
+}

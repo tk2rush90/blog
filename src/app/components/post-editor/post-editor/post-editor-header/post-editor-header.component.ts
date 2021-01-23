@@ -7,6 +7,7 @@ import {DraftModalComponent} from '@scripter/components/post-editor/post-editor/
 import {PublishModalComponent} from '@scripter/components/post-editor/post-editor/publish-modal/publish-modal.component';
 import {ConfirmModalComponent} from '@scripter/components/common/confirm-modal/confirm-modal.component';
 import {PostModel} from '@scripter/models/post-model';
+import {ToolsModalComponent} from '@scripter/components/post-editor/post-editor/tools-modal/tools-modal.component';
 
 @Component({
   selector: 'app-post-editor-header',
@@ -86,6 +87,15 @@ export class PostEditorHeaderComponent implements OnInit {
    */
   openPublishModal(): void {
     this.modalService.open(PublishModalComponent, {
+      closeOnNavigating: true,
+    });
+  }
+
+  /**
+   * open tools modal
+   */
+  openToolsModal(): void {
+    this.modalService.open(ToolsModalComponent, {
       closeOnNavigating: true,
     });
   }
