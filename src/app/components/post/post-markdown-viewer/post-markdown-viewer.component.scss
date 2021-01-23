@@ -116,8 +116,8 @@ markdown {
       @include border(1px solid $silver);
       display: block;
       margin: 0 auto;
-      max-width: 100%;
-      width: 300px;
+      width: 100%;
+      max-width: 500px;
 
       img {
         display: block;
