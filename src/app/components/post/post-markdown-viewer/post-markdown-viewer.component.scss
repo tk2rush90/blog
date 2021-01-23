@@ -92,7 +92,7 @@ markdown {
     // image wrapper
     .scripter-image-wrapper {
       max-width: 100%;
-      margin: 0 auto;
+      margin: 3em auto;
 
       img, span {
         display: block;
@@ -100,6 +100,7 @@ markdown {
 
       img {
         @include border(1px solid $gainsboro);
+        margin: 0;
       }
 
       span {
@@ -121,6 +122,7 @@ markdown {
       img {
         display: block;
         width: 100%;
+        margin: 0;
       }
 
       .scripter-site-info-wrapper {
