@@ -47,6 +47,7 @@ export class SubscriptionService implements OnDestroy {
 
     if (item) {
       (item instanceof Array ? item : [item]).forEach(sub => sub.unsubscribe());
+      delete this.storage[key];
     }
   }
 

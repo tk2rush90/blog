@@ -1,0 +1,38 @@
+<!-- top bar -->
+<div class="scripter-top-bar"></div>
+
+
+<!-- container -->
+<div
+  class="scripter-page-container">
+  <!-- list header -->
+  <app-header
+    [scrollContainer]="elementRef"></app-header>
+
+  <!-- list heading -->
+  <h1>
+    INTRO LIST
+  </h1>
+
+  <!-- bar -->
+  <div class="scripter-bar"></div>
+
+  <!-- intro list container -->
+  <div class="scripter-intro-list-container">
+    <!-- intro list item -->
+    <a
+      *ngFor="let item of introList"
+      [routerLink]="item.route">
+      <app-intro-list-item
+        [intro]="item"></app-intro-list-item>
+    </a>
+
+    <!-- loading spot -->
+    <app-loading-spot
+      *ngIf="loading"
+      [size]="50"></app-loading-spot>
+  </div>
+</div>
+
+<!-- footer -->
+<app-footer></app-footer>

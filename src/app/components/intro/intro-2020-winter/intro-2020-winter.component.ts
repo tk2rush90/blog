@@ -4,7 +4,7 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
-  HostListener, Input, OnDestroy,
+  Input,
   OnInit,
   Renderer2,
 } from '@angular/core';
@@ -16,6 +16,7 @@ import {randomNumber} from '@scripter/utils/random.util';
 import {AbstractAnimationScene, AnimationService} from '@scripter/services/animation/animation.service';
 import {SubscriptionService} from '@scripter/services/subscription/subscription.service';
 import {environment} from '../../../../environments/environment';
+import {IntroBaseComponent} from '@scripter/components/intro/intro-base/intro-base.component';
 
 const {
   assetsPrefix,
@@ -1380,16 +1381,9 @@ export class BackgroundAnimator extends AbstractAnimationScene {
     SubscriptionService,
   ]
 })
-export class Intro2020WinterComponent implements OnInit, AfterViewInit, OnDestroy {
-  // home button link
-  @Input() homeLink: string[] = ['/components/home'];
+export class Intro2020WinterComponent extends IntroBaseComponent implements OnInit, AfterViewInit {
   // title
   readonly titleImage = `${assetsPrefix}/assets/images/scripter-title.png`;
-  // pixi application
-  private _app!: PIXI.Application;
-  // view width and height
-  private _width = 0;
-  private _height = 0;
   // background gradient animator
   private _background: BackgroundAnimator = new BackgroundAnimator();
   // snow container
@@ -1407,57 +1401,21 @@ export class Intro2020WinterComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   constructor(
-    private renderer: Renderer2,
-    private elementRef: ElementRef<HTMLElement>,
-    private animationService: AnimationService,
+    protected renderer: Renderer2,
+    protected elementRef: ElementRef<HTMLElement>,
+    protected animationService: AnimationService,
     private subscriptionService: SubscriptionService,
-  ) { }
+  ) {
+    super(renderer, elementRef, animationService);
+  }
 
   ngOnInit(): void {
-    this.animationService.startAnimation();
+    super.ngOnInit();
   }
 
   ngAfterViewInit(): void {
-    this._setSize();
-    this._createPixiApplication();
-    this._appendToView();
+    super.ngAfterViewInit();
     this._createShadowsContainer();
-  }
-
-  ngOnDestroy(): void {
-    this._app?.destroy();
-  }
-
-  /**
-   * set view container size
-   */
-  private _setSize(): void {
-    const {
-      width,
-      height,
-    } = this.elementRef.nativeElement.getBoundingClientRect();
-
-    this._width = width;
-    this._height = height;
-  }
-
-  /**
-   * create pixi application
-   */
-  private _createPixiApplication(): void {
-    this._app = new PIXI.Application({
-      width: this._width,
-      height: this._height,
-      antialias: true,
-      transparent: true,
-    });
-  }
-
-  /**
-   * append pixi application to view
-   */
-  private _appendToView(): void {
-    this.renderer.appendChild(this.elementRef.nativeElement, this._app.view);
   }
 
   /**
@@ -1687,9 +1645,8 @@ export class Intro2020WinterComponent implements OnInit, AfterViewInit, OnDestro
   /**
    * resize the application and container
    */
-  @HostListener('window:resize')
-  onWindowResize(): void {
-    this._setSize();
+  protected _setSize(): void {
+    super._setSize();
     this._updateApplicationSize();
     this._updateSnowContainerSize();
     this._updateSnowGroundSize();
@@ -1700,7 +1657,7 @@ export class Intro2020WinterComponent implements OnInit, AfterViewInit, OnDestro
    * update application renderer size
    */
   private _updateApplicationSize(): void {
-    this._app.renderer.resize(this._width, this._height);
+    this._app?.renderer?.resize(this._width, this._height);
   }
 
   /**

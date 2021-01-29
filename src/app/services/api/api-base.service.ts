@@ -14,7 +14,11 @@ export class ApiBaseService {
   // api host
   private readonly _host = apiHost;
 
-  constructor(path = '') {
+  constructor(path = '', host?: string) {
+    if (host) {
+      this._host = host;
+    }
+
     this._host += path;
   }
 

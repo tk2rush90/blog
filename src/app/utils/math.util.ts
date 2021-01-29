@@ -150,7 +150,7 @@ export function getAngleBetweenTwoLines(line1: Point[], line2: Point[]): number 
  */
 export function getMovedPoint(point: Point, angle: number, distance: number): Point {
   return {
-    x: point.x + (Math.sin(angle) * distance),
-    y: point.y - (Math.cos(angle) * distance),
+    x: point.x + (Math.cos(angle) * distance),
+    y: point.y + (Math.sin(angle) * distance),
   };
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { Intro2020WinterComponent } from './intro-2020-winter.component';
 import {RouterModule} from '@angular/router';
+import {IntroBaseModule} from '@scripter/components/intro/intro-base/intro-base.module';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import {RouterModule} from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
+    IntroBaseModule,
   ]
 })
 export class Intro2020WinterModule { }

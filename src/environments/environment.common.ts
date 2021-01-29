@@ -25,7 +25,11 @@ export const commonEnvironments = {
     {
       label: 'Side Projects',
       value: 'side-projects',
-    }
+    },
+    {
+      label: 'Thinking',
+      value: 'thinking',
+    },
   ],
   // instagram profile url
   instagramUrl: 'https://www.instagram.com/scripter_90',

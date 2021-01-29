@@ -7,6 +7,7 @@ import {commonEnvironments} from './environment.common';
 export const environment = {
   production: false,
   assetsPrefix: '',
+  localAssets: '/assets',
   ...commonEnvironments,
 };
 
