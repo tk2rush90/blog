@@ -9,6 +9,7 @@ import {LoadingSpotModule} from '@scripter/components/common/loading-spot/loadin
 import {PostMarkdownViewerModule} from '@scripter/components/post/post-markdown-viewer/post-markdown-viewer.module';
 import {PostViewLabelContainerModule} from '@scripter/components/post-view/post-view-label-container/post-view-label-container.module';
 import {FooterModule} from '@scripter/components/common/footer/footer.module';
+import {PaypalDonateButtonModule} from '@scripter/components/common/paypal-donate-button/paypal-donate-button.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {FooterModule} from '@scripter/components/common/footer/footer.module';
     LoadingSpotModule,
     PostMarkdownViewerModule,
     PostViewLabelContainerModule,
-    FooterModule
+    FooterModule,
+    PaypalDonateButtonModule
   ]
 })
 export class PostViewPageModule { }

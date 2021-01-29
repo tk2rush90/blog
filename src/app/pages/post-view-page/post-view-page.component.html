@@ -25,6 +25,9 @@
       <app-post-markdown-viewer
         [content]="post.content"></app-post-markdown-viewer>
 
+      <!-- donation button -->
+      <app-paypal-donate-button></app-paypal-donate-button>
+
       <!-- labels -->
       <app-post-view-label-container
         *ngIf="post.labels.length > 0"

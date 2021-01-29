@@ -40,4 +40,6 @@ export const commonEnvironments = {
   // default meta tags
   defaultKeywords: `블로그, 개발자, 프론트엔드, Angular, angular, 풀스택, frontend, Frontend, Backend, 백엔드, backend, Fullstack, fullstack, JavaScript, 자바스크립트, NestJS, PixiJS`,
   defaultDescription: '풀스택 개발자의 블로그',
+  // paypal link
+  paypalLink: 'https://www.paypal.com/paypalme/tk2rush90',
 };
