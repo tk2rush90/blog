@@ -1,0 +1,41 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include flex(center, center, column);
+}
+
+p {
+  font-size: 12px;
+  color: $silver;
+}
+
+// anchor
+a {
+  @include border(1px solid $silver);
+  @include flex(center, center);
+  @include padding(0 15px);
+  border-radius: 17.5px;
+  height: 35px;
+  margin-top: 5px;
+
+  &:hover {
+    border-color: $pacific-blue;
+
+    #Path_121, #Path_123 {
+      fill: $pacific-blue;
+    }
+
+    #Path_125, #Path_120 {
+      fill: $resolution-blue;
+    }
+
+    #Path_124 {
+      fill: $lucky-point;
+    }
+  }
+}
+
+svg {
+  display: block;
+}
