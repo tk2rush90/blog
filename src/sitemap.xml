@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- intro -->
+  <url>
+    <loc>https://tk2rush90.github.io/blog/?p=/intro</loc>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <!-- intro list -->
+  <url>
+    <loc>https://tk2rush90.github.io/blog/?p=/intro/list</loc>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <!-- category 'all' -->
+  <url>
+    <loc>https://tk2rush90.github.io/blog/?p=/post/list/all</loc>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <!-- category 'dev-notes' -->
+  <url>
+    <loc>https://tk2rush90.github.io/blog/?p=/post/list/dev-notes</loc>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <!-- category 'side-projects' -->
+  <url>
+    <loc>https://tk2rush90.github.io/blog/?p=/post/list/side-projects</loc>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <!-- category 'thinking' -->
+  <url>
+    <loc>https://tk2rush90.github.io/blog/?p=/post/list/thinking</loc>
+    <changefreq>daily</changefreq>
+  </url>
+</urlset>
