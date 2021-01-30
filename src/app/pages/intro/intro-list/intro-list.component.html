@@ -22,7 +22,7 @@
     <!-- intro list item -->
     <a
       *ngFor="let item of introList"
-      [routerLink]="item.route">
+      [href]="prefix + '/?p=' + item.route">
       <app-intro-list-item
         [intro]="item"></app-intro-list-item>
     </a>

@@ -19,7 +19,7 @@ import {environment} from '../../../../environments/environment';
 import {IntroBaseComponent} from '@scripter/components/intro/intro-base/intro-base.component';
 
 const {
-  assetsPrefix,
+  urlPrefix,
 } = environment;
 
 export const SNOW_GROUND_HEIGHTS = 50;
@@ -281,7 +281,7 @@ export class ShadowSprite extends AbstractAnimationScene {
 
 export class ShadowsContainer extends AbstractAnimationScene {
   // loader
-  private static _loader: PIXI.Loader = new PIXI.Loader(`${assetsPrefix}/assets/intro/intro-2020-winter`);
+  private static _loader: PIXI.Loader = new PIXI.Loader(`${urlPrefix}/assets/intro/intro-2020-winter`);
   // emit when sprite created
   onSpriteCreated: EventEmitter<ShadowSprite> = new EventEmitter();
   // emit when all sprites loaded
@@ -1382,8 +1382,10 @@ export class BackgroundAnimator extends AbstractAnimationScene {
   ]
 })
 export class Intro2020WinterComponent extends IntroBaseComponent implements OnInit, AfterViewInit {
+  // url prefix
+  readonly prefix = urlPrefix;
   // title
-  readonly titleImage = `${assetsPrefix}/assets/images/scripter-title.png`;
+  readonly titleImage = `${this.prefix}/assets/images/scripter-title.png`;
   // background gradient animator
   private _background: BackgroundAnimator = new BackgroundAnimator();
   // snow container

@@ -11,6 +11,7 @@ import {environment} from '../../../environments/environment';
 
 const {
   categories,
+  urlPrefix,
 } = environment;
 
 @Component({
@@ -26,6 +27,8 @@ export class PostListPageComponent extends ScrollDetectorDirective implements On
   posts: PostModel[] = [];
   // loading state
   loading = false;
+  // url prefix
+  readonly prefix = urlPrefix;
   // post list response
   private _response: PostListResponseModel | undefined;
   // post category

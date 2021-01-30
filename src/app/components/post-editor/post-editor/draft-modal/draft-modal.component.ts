@@ -9,6 +9,9 @@ import {AuthResponse} from '@scripter/models/google-models';
 import {finalize} from 'rxjs/operators';
 import {PostEditorService} from '@scripter/services/component/post-editor.service';
 import {PostModel} from '@scripter/models/post-model';
+import {HttpErrorResponse} from '@angular/common/http';
+import {getPostErrorMessage} from '@scripter/utils/post-error.util';
+import {ToastService, ToastType} from '@scripter/components/common/toast/service/toast.service';
 
 @Component({
   selector: 'app-draft-modal',
@@ -31,6 +34,7 @@ export class DraftModalComponent implements OnInit {
   constructor(
     @Inject(MODAL_REF) private modalRef: ModalRef<DraftModalComponent>,
     private authService: AuthService,
+    private toastService: ToastService,
     private postApiService: PostApiService,
     private postEditorService: PostEditorService,
     private subscriptionService: SubscriptionService,
@@ -85,6 +89,9 @@ export class DraftModalComponent implements OnInit {
               this.posts = res.items || [];
             }
           },
+          error: err => {
+            this._handleErrorResponse(err);
+          }
         });
 
       this.subscriptionService.store('_getDraftPosts', sub);
@@ -108,5 +115,27 @@ export class DraftModalComponent implements OnInit {
   selectPost(post: PostModel): void {
     this.postEditorService.post = post;
     this.modalRef.close();
+  }
+
+  /**
+   * handle error response
+   * @param error error response
+   */
+  private _handleErrorResponse(error: HttpErrorResponse): void {
+    switch (error.status) {
+      case 401: {
+        this.authService.signIn();
+        break;
+      }
+
+      default: {
+        this.toastService.open({
+          message: getPostErrorMessage(error),
+          type: ToastType.error,
+        });
+
+        break;
+      }
+    }
   }
 }

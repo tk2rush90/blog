@@ -5,7 +5,7 @@
 
 <!-- title -->
 <a
-  [routerLink]="[baseUrl, post?.id]"
+  [href]="baseUrl + '/' + post?.id"
   class="scripter-title">
   {{post?.title}}
 </a>

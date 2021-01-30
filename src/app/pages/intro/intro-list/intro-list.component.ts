@@ -3,6 +3,11 @@ import {IntroApiService} from '@scripter/services/api/intro-api.service';
 import {SubscriptionService} from '@scripter/services/subscription/subscription.service';
 import {finalize} from 'rxjs/operators';
 import {IntroModel} from '@scripter/models/intro-model';
+import {environment} from '../../../../environments/environment';
+
+const {
+  urlPrefix,
+} = environment;
 
 @Component({
   selector: 'app-intro-list',
@@ -17,6 +22,8 @@ export class IntroListComponent implements OnInit {
   loading = false;
   // intro list
   introList: IntroModel[] = [];
+  // url prefix
+  readonly prefix = urlPrefix;
 
   constructor(
     public elementRef: ElementRef<HTMLElement>,

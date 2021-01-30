@@ -2,7 +2,7 @@ import {commonEnvironments} from './environment.common';
 
 export const environment = {
   production: true,
-  assetsPrefix: '/blog',
+  urlPrefix: '/blog',
   localAssets: '/blog/assets',
   ...commonEnvironments,
 };

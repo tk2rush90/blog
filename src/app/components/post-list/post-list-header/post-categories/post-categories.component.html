@@ -1,19 +1,19 @@
 <!-- static link -->
-<a [routerLink]="['/intro']">
+<a [href]="prefix + '/?p=/intro'">
   Intro
 </a>
 
 <!-- all -->
 <a
-  [routerLink]="['/post/list', 'all']"
-  routerLinkActive="scripter-active">
+  [class.scripter-active]="isActive('all')"
+  [href]="prefix + '/?p=/post/list/all'">
   All
 </a>
 
 <!-- categories -->
 <a
-  [routerLink]="['/post/list', item.value]"
-  *ngFor="let item of categories"
-  routerLinkActive="scripter-active">
+  [class.scripter-active]="isActive(item.value)"
+  [href]="prefix + '/?p=/post/list/' + item.value"
+  *ngFor="let item of categories">
   {{item.label}}
 </a>

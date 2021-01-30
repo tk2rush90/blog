@@ -17,7 +17,7 @@ import {UpdateCheckerModule} from '@scripter/components/common/update-checker/up
 
 const {
   clientId,
-  assetsPrefix,
+  urlPrefix,
 } = environment;
 
 const gapiClientConfig: NgGapiClientConfig = {
@@ -46,7 +46,7 @@ const gapiClientConfig: NgGapiClientConfig = {
     BrowserAnimationsModule,
     ToastModule,
     RouterProgressModule,
-    ServiceWorkerModule.register(`${assetsPrefix}/ngsw-worker.js`, {enabled: environment.production}),
+    ServiceWorkerModule.register(`${urlPrefix}/ngsw-worker.js`, {enabled: environment.production}),
     UpdateCheckerModule,
   ],
   providers: [
