@@ -19,7 +19,7 @@
       *ngFor="let item of posts"
       [searchingLabels]="labels"
       [post]="item"
-      baseUrl="/post/view"></app-post-list-item>
+      [baseUrl]="prefix + '/?p=/post/view'"></app-post-list-item>
 
     <ng-container *ngIf="empty">
       <div class="scripter-empty-container">

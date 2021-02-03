@@ -8,6 +8,11 @@ import {finalize} from 'rxjs/operators';
 import {ToastService, ToastType} from '@scripter/components/common/toast/service/toast.service';
 import {ScrollDetectorDirective} from '@scripter/components/common/scroll-detector/scroll-detector.directive';
 import {combineLatest} from 'rxjs';
+import {environment} from '../../../environments/environment';
+
+const {
+  urlPrefix,
+} = environment;
 
 export enum SearchParamType {
   keyword = 'keyword',
@@ -32,6 +37,8 @@ export class PostSearchPageComponent extends ScrollDetectorDirective implements 
   loading = false;
   // labels to search
   labels = '';
+  // prefix
+  prefix = urlPrefix;
   // post list response
   private _response: PostListResponseModel | undefined;
   // search param type
