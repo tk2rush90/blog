@@ -117,7 +117,7 @@ markdown {
     .scripter-site-wrapper {
       @include border(1px solid $gainsboro);
       display: block;
-      margin: 0 auto;
+      margin: 3em auto;
       width: 100%;
       max-width: 500px;
       box-shadow: 0 0 10px rgba($black, .08);
@@ -130,8 +130,11 @@ markdown {
         border: 0;
       }
 
-      .scripter-site-info-wrapper {
+      img + .scripter-site-info-wrapper {
         @include borderTop(1px solid $gainsboro);
+      }
+
+      .scripter-site-info-wrapper {
         @include flex(flex-start, center, column);
         @include padding(10px 20px);
         min-height: 70px;

@@ -3,7 +3,7 @@
  * if value is not string, just check existence
  * @param value string value to check
  */
-export function isValidString(value: string): boolean {
+export function isValidString(value: any): boolean {
   if (typeof value === 'string') {
     return !!(value && value.trim());
   } else {
