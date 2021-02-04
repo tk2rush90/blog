@@ -1,0 +1,19 @@
+@import "styles/mixins";
+@import "styles/props";
+
+:host {
+  @include box(100%);
+  position: absolute;
+  display: block;
+  overflow: hidden;
+}
+
+:host {
+  ::ng-deep {
+    canvas {
+      @include topLeft;
+      display: block;
+      position: absolute;
+    }
+  }
+}

@@ -6,9 +6,6 @@ export const commonEnvironments = {
   apiHost: 'https://www.googleapis.com/blogger/v3/blogs/3591293219003751160',
   // client id for blogger api
   clientId: '872042937877-gm0o2gnkl3962vlsrfp8ei650fc11aci.apps.googleusercontent.com',
-  // blog theme for comment editor
-  // it's not used for now since the comment iframe isn't working correctly because of the CORS issue
-  blogTheme: 'soho',
   // set displayable labels for post list
   displayableLabels: 3,
   // set admin email link
