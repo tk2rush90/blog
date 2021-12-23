@@ -35,6 +35,13 @@ export abstract class AbstractAnimationScene implements AnimationScene {
     this._frame = frame;
     this._start = this._start || this._frame;
   }
+
+  /**
+   * reset time
+   */
+  reset(): void {
+    this._start = this._frame;
+  }
 }
 
 @Injectable()
